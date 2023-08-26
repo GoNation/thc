@@ -47,7 +47,7 @@ const Navigation = ({ business, logoAsText = false }) => {
               height={120}
             />
           </Link>
-          <Link href={'/'} className="hidden md:block xl:hidden">
+          <Link href={'/'} className="hidden sm:block md:block xl:hidden">
             <Image
               className="transition-all"
               src={logo}
