@@ -35,29 +35,38 @@ function MobileNavigation({ navVariants, business, logo }) {
           </Link>
         </div>
         <div className="hidden md:block">
-          <Link href="/">
-            <Image src={logo} width={150} height={150}></Image>
+          <Link href="/" className="absolute top-10 left-8">
+            <Image src={logo} width={120} height={120}></Image>
           </Link>
         </div>
       </div>
-      <div className=" h-4/5 overflow-y-auto  flex flex-col items-center justify-between ">
-        {routes.map(route => (
-          <Link
-            className="text-white font-display font-bold uppercase  text-3xl  sm:text-5xl"
-            key={slugify(route.name, {
-              lower: true,
-            })}
-            href={
-              route.url ||
-              slugify(route.name, {
-                lower: true,
-              })
+      <div className=" h-4/5  overflow-y-auto  flex flex-col items-center justify-start md:mt-8">
+        {routes
+          .reduce((acc, route) => {
+            if (route.children) {
+              acc = acc.concat(route.children);
+            } else {
+              acc.push(route); // Only push routes that don't have children
             }
-            passHref
-          >
-            {route.name}
-          </Link>
-        ))}
+            return acc;
+          }, [])
+          .map(route => (
+            <Link
+              className="text-white font-display font-bold uppercase  text-2xl  sm:text-5xl mb-2 md:mb-8"
+              key={slugify(route.name, {
+                lower: true,
+              })}
+              href={
+                route.url ||
+                slugify(route.name, {
+                  lower: true,
+                })
+              }
+              passHref
+            >
+              {route.name}
+            </Link>
+          ))}
       </div>
     </motion.div>
   );

@@ -1,18 +1,12 @@
-import GradientButton from 'components/GradientButton';
-import { useState } from 'react';
-import { FaExpand } from 'react-icons/fa';
+import React, { useState } from 'react';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import Link from 'next/link';
+dayjs.extend(relativeTime);
 
-function ExpandableShout({
-  data = {
-    title: '30th Annual Oktober Fest:',
-    text: 'Come join us for our 2nd annual Oktoberfest! We will have live music, food, and drinks! Tickets are $10 and can be purchased at the door.',
-    buttonText: 'Buy Tickets',
-    imageUrl:
-      'https://images.unsplash.com/photo-1586993451228-09818021e309?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
-    timeInfo: 'Shouted 42 minutes ago',
-  },
-  isExpandable = true,
-}) {
+import parseCloudinaryImage from 'helpers/cloudinary/parseCloudinaryImage';
+
+function ExpandableShout({ shout, isExpandable = true }) {
   const [expanded, setExpanded] = useState(!isExpandable);
   const [imageExpanded, setImageExpanded] = useState(false);
   const [lightboxVisible, setLightboxVisible] = useState(false);
@@ -25,80 +19,69 @@ function ExpandableShout({
     }
   };
 
+  const linkTitle = shout?.ctas ? Object.keys(shout.ctas)[0] || '' : '';
+  const linkAddress = linkTitle?.length ? shout?.ctas[linkTitle] : '';
+  const linkIsUrl = linkAddress.includes('http') ? '_blank' : '';
+
+  const renderImage = () => (
+    <img
+      className={`order-2 md:order-1 ${
+        imageExpanded ? 'w-full ' : 'w-1/2'
+      } md:my-0 md:w-full md:max-h-[400px] lg:max-h-[550px] 2xl:max-h-[750px] xl:max-w-6xl `}
+      src={parseCloudinaryImage({
+        cloudinaryId: shout?.image?.image?.cloudinaryId,
+        width: 800,
+      })}
+      alt=""
+      onClick={handleImageClick}
+    />
+  );
+
   const expandedView = (
     <div className="relative md:max-w-none mx-auto flex flex-col md:flex-row items-start md:items-center ">
-      <div className="relative order-2 md:order-1">
-        <img
-          className={`order-2 md:order-1 ${
-            imageExpanded ? 'w-full ' : 'w-1/2'
-          } md:my-0 md:w-full md:max-h-[400px] lg:max-h-[550px] xl:max-h-[600px] 2xl:max-h-[800px]`}
-          src={data.imageUrl}
-          alt=""
-          onClick={() => handleImageClick()}
-        />
-      </div>
+      <div className="relative order-2 md:order-1">{renderImage()}</div>
       <div className="md:pr-8 sm:max-w-md md:max-w-none order-1 md:order-1 mb-8 md:mb-0 md:px-8 lg:px-16">
-        <p className="font-bold inline text-4xl sm:text-4xl lg:text-5xl 2xl:text-7xl leading-3 text-primary font-display">
-          {data.title} <br />
+        <p className="font-bold inline text-4xl sm:text-4xl lg:text-5xl 2xl:text-7xl text-primary font-display leading-10">
+          {shout?.title || 'Recent Shout:'} <br />
         </p>
         <p className="text-lg md:text-xl my-2 md:my-6 text-primary font-bold max-w-2xl">
-          {data.text}
+          {shout?.text}
         </p>
 
-        <button className="bg-transparent text-primary py-2 px-8 font-bold uppercase text-base mt-2 border-primary border-2 md:hidden">
-          {data.buttonText}
-        </button>
-        <GradientButton buttonText={data.buttonText} />
+        <Link target={linkIsUrl} href={`${linkAddress}`}>
+          <button className="bg-transparent text-primary py-2 px-8 font-bold uppercase text-base mt-2 border-primary border-2 xl:text-lg">
+            {linkTitle}
+          </button>
+        </Link>
       </div>
     </div>
   );
 
   return (
     <div
-      className={`relative p-6 md:p-0 lg:p-0  w-full 0 ${
-        expanded && 'py-12'
+      className={`relative p-6 md:p-0 lg:p-0 w-full ${
+        expanded ? 'py-12' : ''
       } relative`}
       style={{
-        backgroundImage: `url(https://media.discordapp.net/attachments/1063886480394690592/1144834987661725766/esmith7196_Capture_a_high-quality_photograph_of_a_rich_and_text_3ded2088-2032-4fc6-82f7-99c6feb728cc.png?width=1626&height=1084)`,
+        backgroundImage: `url(https://res.cloudinary.com/gonation/image/upload/v1693076784/sites/thc/esmith7196_Capture_a_high-quality_photograph_of_a_rich_and_text_3ded2088-2032-4fc6-82f7-99c6feb728cc.png)`,
         backgroundSize: 'cover',
       }}
     >
-      <div className="bg-[#492107] absolute left-0 top-0 w-full h-full bg-opacity-80"></div>
+      <div className=" absolute left-0 top-0 w-full h-full bg-opacity-80 bg-gradient-to-r from-black via-transparent to-transparent"></div>
       <p className="absolute bottom-1 right-1 text-xs italic text-secondary">
-        {data.timeInfo}
+        {dayjs(shout?.createdAt).fromNow()}
       </p>
-      {expanded ? (
-        expandedView
-      ) : (
-        <p className="">
-          <span className="font-bold inline text-xs transition-all duration-1000 text-white">
-            {data.title}{' '}
-          </span>
-          <span className="whitespace-pre-line inline text-xs">
-            {data.text.substring(0, 38)}...
-            <span
-              className="underline cursor-pointer"
-              onClick={() => setExpanded(!expanded)}
-            >
-              <br /> View Shout
-            </span>
-          </span>
-        </p>
-      )}
+      {expanded ? expandedView : null}
       {lightboxVisible && (
         <div
           className="fixed top-0 left-0 w-full h-full bg-black opacity-90 flex justify-center items-center z-50 p-12 sm:p-24 "
           onClick={() => setLightboxVisible(false)}
         >
-          <div className=" max-h-full flex flex-col items-center justify-center">
-            <img
-              className="h-auto  object-contain mb-8 border-2 md:max-h-[500px]"
-              src={data.imageUrl}
-              alt=""
-            />
+          <div className="max-h-full flex flex-col items-center justify-center">
+            {renderImage()}
             <div className="text-center text-white absolute bottom-4 max-w-sm  md:max-w-lg bg-black py-1">
-              <h3 className="font-bold text-white">{data.title}</h3>
-              <p className="text-white text-xs">{data.text}</p>
+              <h3 className="font-bold text-white">{shout?.title}</h3>
+              <p className="text-white text-xs">{shout?.text}</p>
             </div>
           </div>
         </div>

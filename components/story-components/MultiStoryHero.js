@@ -42,16 +42,19 @@ export default function MultiStoryHero({
     const { linkTitle, linkAddress, title, subtitle } = extractStory(story);
     return (
       <div className="absolute bottom-0 left-0 w-full h-full bg-black bg-opacity-30 px-4">
-        <div className="relative flex flex-col items-center justify-center w-full h-full text-center">
+        <div className="relative flex flex-col items-center justify-center w-full h-full text-center  lg:pt-24">
           <div>
-            <h2 className="text-4xl sm:text-7xl lg:text-8xl   font-bold text-white uppercase font-display mb-8 lg:mb-12 ">
+            <h2 className="text-4xl sm:text-7xl lg:text-6xl xl:text-8xl   font-bold text-white uppercase font-display mb-8">
               {title}
             </h2>
-            <h3 className="text-xl font-bold text-white">{subtitle}</h3>
+            {subtitle && (
+              <h3 className="text-xl font-bold text-white">{subtitle}</h3>
+            )}
+
             {linkAddress && linkTitle ? (
               <a
                 href={linkAddress}
-                className="px-8 py-2 mt-4 text-white bg-secondary border-2 border-white rounded text-xl font-bold uppercase"
+                className="px-8 py-2 mt-4 text-white bg-secondary border-2 border-white rounded text-xl font-bold uppercase hover:bg-transparent transition-all duration-200"
               >
                 {linkTitle}
               </a>

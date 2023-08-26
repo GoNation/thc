@@ -39,7 +39,7 @@ export default function Home({ storiesData, aboutData, shoutData }) {
     <AppContext.Provider value={{ storiesData, aboutData, shoutData }}>
       <Layout business={aboutData} pageTitle="Home" shoutData={shoutData}>
         <MultiStoryHero stories={homepageSliderStories} slideDuration={8000} />
-        <ExpandableShout isExpandable={false} />
+        <ExpandableShout isExpandable={false} shout={shoutData.shout} />
         <iframe
           className="h-96 sm:h-[400px] lg:h-[750px]"
           src="https://www.youtube.com/embed/D9CMUOWmcZs?si=degvSOb4bd3r4mmk&amp;controls=0"

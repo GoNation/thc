@@ -11,6 +11,8 @@ import buildAvatar from 'helpers/general/buildAvatar';
 import { motion } from 'framer-motion';
 import MobileNavigation from './MobileNavigation';
 
+import { FaAngleDown } from 'react-icons/fa';
+
 const Navigation = ({ business, logoAsText = false }) => {
   const [navIsOpen, setNavIsOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -33,34 +35,34 @@ const Navigation = ({ business, logoAsText = false }) => {
 
   return (
     <div className={`absolute w-full z-50 transition-all`}>
-      <div className="container max-w-6xl xl:max-w-none mx-auto px-4 py-4 flex flex-col items-center justify-between">
+      <div className="container max-w-6xl xl:max-w-none mx-auto px-4 py-4 flex lg:flex-col items-center justify-center">
         {/* Logo */}
-        <div className="transition-all mb-8">
+        <div className="transition-all mb-8 lg:mb-4">
           <Link href={'/'}>
             <Image
               className="transition-all sm:hidden "
               src={logo}
               alt="Business Logo"
-              width={hasScrolled() ? 90 : 120}
-              height={hasScrolled() ? 90 : 120}
+              width={120}
+              height={120}
             />
           </Link>
-          <Link href={'/'} className="hidden md:block lg:hidden">
+          <Link href={'/'} className="hidden md:block xl:hidden">
             <Image
               className="transition-all"
               src={logo}
               alt="Business Logo"
-              width={hasScrolled() ? 90 : 150}
-              height={hasScrolled() ? 90 : 150}
+              width={150}
+              height={150}
             />
           </Link>
-          <Link href={'/'} className="hidden lg:block">
+          <Link href={'/'} className="hidden xl:block">
             <Image
               className="transition-all"
               src={logo}
               alt="Business Logo"
-              width={hasScrolled() ? 90 : 200}
-              height={hasScrolled() ? 90 : 200}
+              width={160}
+              height={160}
             />
           </Link>
         </div>
@@ -68,18 +70,41 @@ const Navigation = ({ business, logoAsText = false }) => {
         {/* Desktop Navigation */}
         <div className="hidden lg:flex space-x-3">
           {routes.map(route => (
-            <Link
+            <div
               key={slugify(route.name, { lower: true })}
-              href={route.url || slugify(route.name, { lower: true })}
-              className="text-white text-sm md:text-base  uppercase font-bold hover:underline"
+              className="relative group"
             >
-              {route.name}
-            </Link>
+              <Link
+                href={route.url || slugify(route.name, { lower: true })}
+                className="text-white text-sm md:text-base uppercase font-bold hover:underline inline-flex items-center"
+              >
+                {route.name}
+                {route.children && (
+                  <span className="ml-1">
+                    <FaAngleDown color="#fffff" />
+                  </span>
+                )}
+              </Link>
+
+              {route.children && (
+                <div className="absolute left-0 mt-0 space-y-2 bg-white  text-black shadow-md hidden group-hover:block py-1">
+                  {route.children.map(child => (
+                    <Link
+                      key={slugify(child.name, { lower: true })}
+                      href={child.url || slugify(child.name, { lower: true })}
+                      className="block px-4 py-2 hover:bg-gray-100 hover:text-secondary whitespace-pre uppercase bold"
+                    >
+                      {child.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </div>
 
         {/* Hamburger */}
-        <div className="lg:hidden absolute right-6 z-10">
+        <div className="lg:hidden absolute right-8 top-14 md:top-16 z-10">
           <Hamburger
             toggled={navIsOpen}
             toggle={setNavIsOpen}

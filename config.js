@@ -11,73 +11,91 @@ const backgroundColor = '#FEFEFE';
 const lightColor = '#E1DEDB';
 
 const routes = [
-  //   {
-  //     name: 'Home',
-  //     url: '/',
-  //     hidden: false,
-  //     isPrimaryCalledToAction: false,
-  //     pageHero: null,
-  //     seoPageTitle: '',
-  //   },
   {
     name: 'About',
     isPrimaryCalledToAction: false,
     pageHero: 'about-pagehero',
   },
+
   {
-    name: 'On Tap',
+    name: 'Menus',
     isPrimaryCalledToAction: false,
-    pageHero: '',
-    url: 'https://business.untappd.com/embeds/iframes/22705/86629 ',
+    url: '',
+    children: [
+      {
+        name: 'On Tap',
+        isPrimaryCalledToAction: false,
+        pageHero: '',
+        url: 'https://business.untappd.com/embeds/iframes/22705/86629',
+      },
+      {
+        name: 'Drinks',
+        isPrimaryCalledToAction: true,
+        url: '',
+        seoPageTitle: '',
+      },
+      {
+        name: 'Menu',
+        isPrimaryCalledToAction: true,
+        url: '',
+        seoPageTitle: '',
+      },
+    ],
   },
+
   {
-    name: 'Drinks',
+    name: 'Events & Functions',
     isPrimaryCalledToAction: true,
     url: '',
-    seoPageTitle: '',
+    children: [
+      {
+        name: 'Events',
+        isPrimaryCalledToAction: true,
+        url: '',
+        seoPageTitle: '',
+      },
+      {
+        name: 'Private Events & Parties',
+        isPrimaryCalledToAction: true,
+        url: '',
+        seoPageTitle: '',
+      },
+      {
+        name: 'Weddings',
+        isPrimaryCalledToAction: true,
+        url: '',
+        seoPageTitle: '',
+      },
+    ],
   },
+
   {
-    name: 'Menu',
+    name: 'Media',
     isPrimaryCalledToAction: true,
     url: '',
-    seoPageTitle: '',
+    children: [
+      {
+        name: 'News',
+        isPrimaryCalledToAction: true,
+        url: '',
+        seoPageTitle: '',
+      },
+      {
+        name: 'Gallery',
+        isPrimaryCalledToAction: true,
+        url: '',
+        seoPageTitle: '',
+      },
+    ],
   },
-  {
-    name: 'Events',
-    isPrimaryCalledToAction: true,
-    url: '',
-    seoPageTitle: '',
-  },
-  {
-    name: 'Private Events & Parties',
-    isPrimaryCalledToAction: true,
-    url: '',
-    seoPageTitle: '',
-  },
-  {
-    name: 'Weddings',
-    isPrimaryCalledToAction: true,
-    url: '',
-    seoPageTitle: '',
-  },
-  {
-    name: 'News',
-    isPrimaryCalledToAction: true,
-    url: '',
-    seoPageTitle: '',
-  },
-  {
-    name: 'Gallery',
-    isPrimaryCalledToAction: true,
-    url: '',
-    seoPageTitle: '',
-  },
+
   {
     name: 'Gift Cards',
     isPrimaryCalledToAction: true,
     url: '',
     seoPageTitle: '',
   },
+
   {
     name: 'Contact',
     isPrimaryCalledToAction: false,
@@ -85,6 +103,7 @@ const routes = [
     seoPageTitle: '',
   },
 ];
+
 const filteredOutGalleryImages = [
   'Website photos',
   'website photos',
