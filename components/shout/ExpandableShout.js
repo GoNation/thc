@@ -44,7 +44,7 @@ function ExpandableShout({ shout, isExpandable = true }) {
         <p className="font-bold inline text-4xl sm:text-4xl lg:text-5xl 2xl:text-7xl text-primary font-display leading-10">
           {shout?.title || 'Recent Shout:'} <br />
         </p>
-        <p className="text-lg md:text-xl my-2 md:my-6 text-primary font-bold max-w-2xl">
+        <p className="text-lg md:text-xl my-2 md:my-6 text-primary font-bold max-w-2xl xl:max-w-3xl">
           {shout?.text}
         </p>
 
@@ -67,7 +67,7 @@ function ExpandableShout({ shout, isExpandable = true }) {
         backgroundSize: 'cover',
       }}
     >
-      <div className=" absolute left-0 top-0 w-full h-full bg-opacity-80 bg-gradient-to-r from-black via-transparent to-transparent"></div>
+      <div className=" absolute left-0 top-0 w-full h-full bg-black bg-opacity-40 md:bg-opacity-0 md:bg-gradient-to-r md:from-black md:via-black/60 md:to-transparent"></div>
       <p className="absolute bottom-1 right-1 text-xs italic text-secondary">
         {dayjs(shout?.createdAt).fromNow()}
       </p>
