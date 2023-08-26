@@ -4,6 +4,33 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.gradient-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #3490dc; /* Set your primary color here */
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.gradient-btn:hover::before {
+  width: 100%;
+}
+
+.gradient-btn:hover {
+  color: white;
+}
+
+
 html,
 body {
   padding: 0;

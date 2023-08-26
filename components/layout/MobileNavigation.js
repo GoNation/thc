@@ -43,7 +43,7 @@ function MobileNavigation({ navVariants, business, logo }) {
       <div className=" h-4/5 overflow-y-auto  flex flex-col items-center justify-between ">
         {routes.map(route => (
           <Link
-            className="text-white font-display font-bold uppercase  text-3xl  mini:text-xl"
+            className="text-white font-display font-bold uppercase  text-3xl  sm:text-5xl"
             key={slugify(route.name, {
               lower: true,
             })}

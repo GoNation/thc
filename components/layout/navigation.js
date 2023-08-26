@@ -17,11 +17,6 @@ const Navigation = ({ business, logoAsText = false }) => {
 
   const logo = buildAvatar(business);
 
-  const navVariants = {
-    open: { y: 0, opacity: 1 },
-    closed: { y: '-150%', opacity: 0 },
-  };
-
   const handleScroll = () => {
     const position = window.pageYOffset;
     setScrollPosition(position);
@@ -34,94 +29,56 @@ const Navigation = ({ business, logoAsText = false }) => {
     };
   }, []);
 
-  const hasScrolled = () => false || scrollPosition > 1;
-
-  const isprimaryCTA = r => r.isPrimaryCalledToAction;
-
-  const router = useRouter();
-  const splitIndex = Math.ceil(routes.length / 2);
-  const desktopItem = `uppercase font-thin text-base hover:text-primary ${
-    hasScrolled() ? 'text-dark' : 'text-white'
-  }`;
+  const hasScrolled = () => scrollPosition > 1;
 
   return (
-    <div
-      className={`absolute w-full z-50 transition-all ${
-        hasScrolled() ? '' : ''
-      } `}
-    >
-      <div className="container max-w-6xl mx-auto px-4 py-2 flex items-center justify-between">
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex space-x-3">
-          {routes.slice(0, splitIndex).map(route => (
-            <Link
-              key={slugify(route.name, {
-                lower: true,
-              })}
-              href={
-                route.url ||
-                slugify(route.name, {
-                  lower: true,
-                })
-              }
-            >
-              {route.name}
-            </Link>
-          ))}
-        </div>
+    <div className={`absolute w-full z-50 transition-all`}>
+      <div className="container max-w-6xl xl:max-w-none mx-auto px-4 py-4 flex flex-col items-center justify-between">
         {/* Logo */}
-        <div
-          className={`md:hidden transition-all ${
-            !hasScrolled() ? 'mx-auto' : ''
-          }`}
-        >
+        <div className="transition-all mb-8">
           <Link href={'/'}>
             <Image
-              className="transition-all"
-              src={logo}
-              alt="Business Logo"
-              width={hasScrolled() ? 60 : 120}
-              height={hasScrolled() ? 60 : 120}
-            />
-          </Link>
-        </div>
-        <div
-          className={`hidden md:block flex-shrink-0 transition-all ${
-            !hasScrolled() ? 'mx-auto' : ''
-          }`}
-        >
-          <Link href={'/'}>
-            <Image
-              className="transition-all"
+              className="transition-all sm:hidden "
               src={logo}
               alt="Business Logo"
               width={hasScrolled() ? 90 : 120}
               height={hasScrolled() ? 90 : 120}
             />
           </Link>
+          <Link href={'/'} className="hidden md:block lg:hidden">
+            <Image
+              className="transition-all"
+              src={logo}
+              alt="Business Logo"
+              width={hasScrolled() ? 90 : 150}
+              height={hasScrolled() ? 90 : 150}
+            />
+          </Link>
+          <Link href={'/'} className="hidden lg:block">
+            <Image
+              className="transition-all"
+              src={logo}
+              alt="Business Logo"
+              width={hasScrolled() ? 90 : 200}
+              height={hasScrolled() ? 90 : 200}
+            />
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex space-x-3">
-          {routes.slice(splitIndex).map(route => (
+          {routes.map(route => (
             <Link
-              key={slugify(route.name, {
-                lower: true,
-              })}
-              href={
-                route.url ||
-                slugify(route.name, {
-                  lower: true,
-                })
-              }
+              key={slugify(route.name, { lower: true })}
+              href={route.url || slugify(route.name, { lower: true })}
+              className="text-white text-sm md:text-base  uppercase font-bold hover:underline"
             >
               {route.name}
             </Link>
           ))}
         </div>
 
-        {/* Hamburger (visible only when logo moves to the left) */}
-
+        {/* Hamburger */}
         <div className="lg:hidden absolute right-6 z-10">
           <Hamburger
             toggled={navIsOpen}
@@ -131,13 +88,7 @@ const Navigation = ({ business, logoAsText = false }) => {
         </div>
 
         {/* Mobile Navigation */}
-        {navIsOpen && (
-          <MobileNavigation
-            navVariants={navVariants}
-            business={business}
-            logo={logo}
-          />
-        )}
+        {navIsOpen && <MobileNavigation business={business} logo={logo} />}
       </div>
     </div>
   );
