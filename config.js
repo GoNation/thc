@@ -15,6 +15,7 @@ const routes = [
     name: 'About',
     isPrimaryCalledToAction: false,
     pageHero: 'about-pagehero',
+    tag: 'discover',
   },
 
   {
@@ -27,18 +28,21 @@ const routes = [
         isPrimaryCalledToAction: false,
         pageHero: '',
         url: 'https://business.untappd.com/embeds/iframes/22705/86629',
+        tag: 'menus',
       },
       {
         name: 'Drinks',
         isPrimaryCalledToAction: true,
         url: '',
         seoPageTitle: '',
+        tag: 'menus',
       },
       {
         name: 'Menu',
         isPrimaryCalledToAction: true,
         url: '',
         seoPageTitle: '',
+        tag: 'menus',
       },
     ],
   },
@@ -53,18 +57,21 @@ const routes = [
         isPrimaryCalledToAction: true,
         url: '',
         seoPageTitle: '',
+        tag: 'discover',
       },
       {
         name: 'Private Events & Parties',
         isPrimaryCalledToAction: true,
         url: '',
         seoPageTitle: '',
+        tag: 'discover',
       },
       {
         name: 'Weddings',
         isPrimaryCalledToAction: true,
         url: '',
         seoPageTitle: '',
+        tag: 'discover',
       },
     ],
   },
@@ -92,8 +99,9 @@ const routes = [
   {
     name: 'Gift Cards',
     isPrimaryCalledToAction: true,
-    url: '',
+    url: 'https://swipeit.com/co-branded/merchant/the-hops-company-9639',
     seoPageTitle: '',
+    tag: 'discover',
   },
 
   {
@@ -101,6 +109,7 @@ const routes = [
     isPrimaryCalledToAction: false,
     pageHero: 'Contact-heropage',
     seoPageTitle: '',
+    tag: 'discover',
   },
 ];
 

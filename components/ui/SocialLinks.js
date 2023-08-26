@@ -24,7 +24,7 @@ const SocialLInks = ({
     }
     return '';
   };
-  const classList = `socialLink flex mr-3 my-6 md:my-0 lg:mx-2 hover:underline hover:text-primary ${className}`;
+  const classList = `socialLink flex mr-3  md:my-0 lg:mx-2 hover:underline hover:text-primary ${className}`;
 
   return (
     <>

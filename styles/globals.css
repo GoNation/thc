@@ -252,3 +252,19 @@ iframe {
 	background-color: #e1b35e;
 	background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
 }
+
+footer p, footer h4 {
+	@apply text-white;
+}
+
+footer h4 {
+	@apply font-bold font-display uppercase text-lg md:text-xl lg:text-2xl;
+}
+
+footer a {
+	@apply text-white font-body font-light ;
+}
+
+footer li {
+	@apply mb-1;
+}
