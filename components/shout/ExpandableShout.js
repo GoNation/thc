@@ -49,7 +49,7 @@ function ExpandableShout({ shout, isExpandable = true }) {
         </p>
 
         <Link target={linkIsUrl} href={`${linkAddress}`}>
-          <button className="bg-transparent text-primary py-2 px-8 font-bold uppercase text-base mt-2 border-primary border-2 xl:text-lg">
+          <button className="bg-transparent text-primary py-2 px-8 font-bold uppercase text-base mt-2 border-primary border-2 xl:text-lg hover:bg-primary hover:text-white transition-all duration-500 ease">
             {linkTitle}
           </button>
         </Link>
@@ -59,7 +59,7 @@ function ExpandableShout({ shout, isExpandable = true }) {
 
   return (
     <div
-      className={`relative p-6 md:p-0 lg:p-0 w-full ${
+      className={`relative p-6 md:p-0 lg:p-0 w-full lg:bg-fixed ${
         expanded ? 'py-12' : ''
       } relative`}
       style={{

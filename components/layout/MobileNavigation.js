@@ -9,7 +9,7 @@ import printAddress from 'helpers/printing/printAddress';
 function MobileNavigation({ navVariants, business, logo }) {
   const animatedClassName =
     'lg:hidden fixed top-0 left-0 w-full w-full h-screen bg-secondary';
-  const mobileLogoSize = 64;
+  const mobileLogoSize = 80;
   return (
     <motion.div
       initial="closed"
@@ -52,7 +52,7 @@ function MobileNavigation({ navVariants, business, logo }) {
           }, [])
           .map(route => (
             <Link
-              className="text-white font-display font-bold uppercase  text-2xl  sm:text-5xl mb-2 md:mb-8"
+              className="text-white font-display font-bold uppercase  text-2xl  sm:text-5xl mb-2 sm:mb-4 md:mb-8"
               key={slugify(route.name, {
                 lower: true,
               })}

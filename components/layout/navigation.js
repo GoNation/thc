@@ -92,7 +92,7 @@ const Navigation = ({ business, logoAsText = false }) => {
                     <Link
                       key={slugify(child.name, { lower: true })}
                       href={child.url || slugify(child.name, { lower: true })}
-                      className="block px-4 py-2 hover:bg-gray-100 hover:text-secondary whitespace-pre uppercase bold"
+                      className="block px-4 py-2 hover:bg-secondary hover:text-white whitespace-pre uppercase bold"
                     >
                       {child.name}
                     </Link>
