@@ -5,7 +5,12 @@ import Layout from 'components/layout/layout';
 import MultiStoryHero from 'components/story-components/MultiStoryHero';
 import ExpandableShout from 'components/shout/ExpandableShout';
 
-export default function Home({ storiesData, aboutData, shoutData }) {
+export default function Home({
+  storiesData,
+  aboutData,
+  shoutData,
+  poweredImagesData,
+}) {
   // const routeData = () => routes.find('');
   //   const heroStory = findStoryByTag('1', storiesData.general);
   //   const homeAboutStory = findStoryByTag('2', storiesData.general);
@@ -37,8 +42,13 @@ export default function Home({ storiesData, aboutData, shoutData }) {
 
   return (
     <AppContext.Provider value={{ storiesData, aboutData, shoutData }}>
-      <Layout business={aboutData} pageTitle="Home" shoutData={shoutData}>
-        <MultiStoryHero stories={homepageSliderStories} slideDuration={8000} />
+      <Layout
+        business={aboutData}
+        pageTitle="Home"
+        shoutData={shoutData}
+        poweredImagesData={poweredImagesData}
+        homeSliderData={homepageSliderStories}
+      >
         <ExpandableShout isExpandable={false} shout={shoutData.shout} />
         <iframe
           className="h-96 sm:h-[400px] lg:h-[750px]"
@@ -68,7 +78,7 @@ export async function getStaticProps() {
     about: true,
     menuInventory: true,
     menuPL: 1,
-    gallery: true,
+    gallery: false,
   });
   return {
     props: {

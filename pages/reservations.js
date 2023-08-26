@@ -31,7 +31,7 @@ const Reservations = ({
 
 export default Reservations;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const {
     poweredImagesData,
     aboutData,

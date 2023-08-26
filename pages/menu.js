@@ -1,32 +1,34 @@
 import React from 'react';
 import PageHero from 'components/heros/PageHero';
 import Layout from 'components/layout/layout';
-import Menu from 'components/menu/Menu';
+import { Menu as GoNationMenu } from 'components/menu/Menu';
 import { gonationId } from 'config';
 import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
 import findPoweredImage from 'helpers/general/findPoweredImage';
 import Container from 'components/ui/Container';
 
-const Menus = ({
+const Menu = ({
   aboutData,
   poweredImagesData,
   menuInventoryData,
   shoutData,
 }) => {
-  const poweredImage = findPoweredImage('services-pagehero', poweredImagesData);
-
   return (
-    <Layout business={aboutData} pageTitle="Services" shoutData={shoutData}>
-      <PageHero img={poweredImage} pageTitle="Services" />
+    <Layout
+      business={aboutData}
+      pageTitle="Menu"
+      shoutData={shoutData}
+      poweredImagesData={poweredImagesData}
+    >
       <div className="menu-wrap py-8">
         <Container size="large">
           <div className="lg:pb-32 ">
-            <Menu
+            {/* <GoNationMenu
               gonationID={gonationId}
               businessData={aboutData}
               menuData={menuInventoryData[0]}
               mode={'tabs'}
-            />
+            /> */}
           </div>
         </Container>
       </div>
@@ -34,9 +36,9 @@ const Menus = ({
   );
 };
 
-export default Menus;
+export default Menu;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const { poweredImagesData, aboutData, menuInventoryData, shoutData } =
     await fetchGoNationData({
       poweredImages: true,

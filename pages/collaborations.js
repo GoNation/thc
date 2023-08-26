@@ -47,7 +47,7 @@ const Collaborations = ({
 
 export default Collaborations;
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   const { poweredImagesData, aboutData, shoutData, storiesData } =
     await fetchGoNationData({
       poweredImages: true,

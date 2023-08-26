@@ -8,6 +8,10 @@ import FixedCallToActions from './FixedCallToActions';
 import buildAvatar from '../../helpers/general/buildAvatar';
 import { domain } from '../../config';
 import slugifyLower from '../../helpers/printing/slugifyLower';
+import MultiStoryHero from 'components/story-components/MultiStoryHero';
+import { useRouter } from 'next/router';
+import findPoweredImage from 'helpers/general/findPoweredImage';
+import PageHero from 'components/heros/PageHero';
 
 const Layout = ({
   children,
@@ -15,7 +19,11 @@ const Layout = ({
   pageTitle,
   pageDescription,
   shoutData,
+  homeSliderData,
+  poweredImagesData,
 }) => {
+  const router = useRouter();
+  const { pathname } = router;
   const getPageTitle = () => {
     if (pageTitle) {
       return `${pageTitle} | ${business.name}`;
@@ -28,6 +36,20 @@ const Layout = ({
       return pageDescription;
     }
     return `${business.desc}`;
+  };
+
+  const retrievePageHeroImage = () => {
+    const pathNameWithoutSlash = pathname.replace('/', '');
+    console.log('ss', pathNameWithoutSlash);
+    const foundImage = findPoweredImage(
+      pathNameWithoutSlash.toString(),
+      poweredImagesData
+    );
+    console.log(foundImage);
+    if (foundImage) {
+      return foundImage;
+    }
+    return null;
   };
 
   return (
@@ -56,6 +78,12 @@ const Layout = ({
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Head>
       <Navigation business={business} />
+      {homeSliderData ? (
+        <MultiStoryHero stories={homeSliderData} slideDuration={8000} />
+      ) : (
+        <PageHero img={retrievePageHeroImage()} pageTitle={pageTitle} />
+      )}
+
       <main className="">{children}</main>
       <div className="md:hidden">
         {/* <FixedCallToActions

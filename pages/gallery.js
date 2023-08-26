@@ -11,7 +11,12 @@ const Gallery = ({ aboutData, poweredImagesData, galleryData, shoutData }) => {
   const filterGalleryAlbums = abm =>
     !filteredOutGalleryImages.includes(abm.name.toLowerCase());
   return (
-    <Layout business={aboutData} pageTitle="Gallery" shoutData={shoutData}>
+    <Layout
+      business={aboutData}
+      pageTitle="Gallery"
+      shoutData={shoutData}
+      poweredImagesData={poweredImagesData}
+    >
       <section className="min-h-screen with-texture  px-6 bg-dark">
         <Masonry data={galleryData.filter(filterGalleryAlbums)}></Masonry>
       </section>
@@ -21,7 +26,7 @@ const Gallery = ({ aboutData, poweredImagesData, galleryData, shoutData }) => {
 
 export default Gallery;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const {
     poweredImagesData,
     aboutData,

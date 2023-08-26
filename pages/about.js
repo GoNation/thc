@@ -17,8 +17,8 @@ const About = ({ aboutData, poweredImagesData, shoutData, storiesData }) => {
       business={aboutData}
       pageTitle="About"
       shoutData={shoutData}
+      poweredImagesData={poweredImagesData}
     >
-      <PageHero img={poweredImage} pageTitle="About" />
       <section className="">
         <BasicContentContainer businessData={aboutData}></BasicContentContainer>
         <SideBySideImage
@@ -35,7 +35,7 @@ const About = ({ aboutData, poweredImagesData, shoutData, storiesData }) => {
 
 export default About;
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   const { poweredImagesData, aboutData, shoutData, storiesData } =
     await fetchGoNationData({
       poweredImages: true,

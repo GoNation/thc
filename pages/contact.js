@@ -13,7 +13,12 @@ const Contact = ({ aboutData, poweredImagesData, shoutData }) => {
   const formBackground = findPoweredImage('contact-form', poweredImagesData);
   console.log('formatted about data', formBackground);
   return (
-    <Layout business={aboutData} pageTitle="Contact" shoutData={shoutData}>
+    <Layout
+      business={aboutData}
+      pageTitle="Contact"
+      shoutData={shoutData}
+      poweredImagesData={poweredImagesData}
+    >
       <PageHero img={poweredImage} pageTitle="Contact" />
       <div className="lg:flex  flex-wrap items-start">
         <div className="bg-lighter flex justify-center items-center flex-col py-8 px-4  lg:min-h-screen md:px-2  font-body lg:w-1/2">

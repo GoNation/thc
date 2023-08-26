@@ -1,32 +1,34 @@
 import React from 'react';
 import PageHero from 'components/heros/PageHero';
 import Layout from 'components/layout/layout';
-import Menu from 'components/menu/Menu';
-import { businessId } from 'config';
+import { Menu as GoNationMenu } from 'components/menu/Menu';
+import { gonationId } from 'config';
 import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
 import findPoweredImage from 'helpers/general/findPoweredImage';
 import Container from 'components/ui/Container';
 
-const Products = ({
+const Drinks = ({
   aboutData,
   poweredImagesData,
   menuInventoryData,
   shoutData,
 }) => {
-  const poweredImage = findPoweredImage('products-pagehero', poweredImagesData);
-
   return (
-    <Layout business={aboutData} pageTitle="Products" shoutData={shoutData}>
-      <PageHero img={poweredImage} pageTitle="Products" />
+    <Layout
+      business={aboutData}
+      pageTitle="Drinks"
+      shoutData={shoutData}
+      poweredImagesData={poweredImagesData}
+    >
       <div className="menu-wrap py-8">
         <Container size="large">
           <div className="lg:pb-32 ">
-            <Menu
-              gonationID={businessId}
+            {/* <GoNationMenu
+              gonationID={gonationId}
               businessData={aboutData}
               menuData={menuInventoryData[0]}
-              mode={'allInOnce'}
-            />
+              mode={'tabs'}
+            /> */}
           </div>
         </Container>
       </div>
@@ -34,7 +36,7 @@ const Products = ({
   );
 };
 
-export default Products;
+export default Drinks;
 
 export async function getStaticProps() {
   const { poweredImagesData, aboutData, menuInventoryData, shoutData } =
@@ -42,7 +44,7 @@ export async function getStaticProps() {
       poweredImages: true,
       about: true,
       menuInventory: true,
-      menuPL: 2,
+      menuPL: 1,
       shout: true,
     });
   return {
