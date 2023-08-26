@@ -25,7 +25,7 @@ function ExpandableShout({ shout, isExpandable = true }) {
 
   const renderImage = () => (
     <img
-      className={`order-2 md:order-1 ${
+      className={`object-contain order-2 md:order-1 ${
         imageExpanded ? 'w-full ' : 'w-1/2'
       } md:my-0 md:w-full md:max-h-[400px] lg:max-h-[550px] 2xl:max-h-[750px] xl:max-w-6xl `}
       src={parseCloudinaryImage({
@@ -41,7 +41,7 @@ function ExpandableShout({ shout, isExpandable = true }) {
     <div className="relative md:max-w-none mx-auto flex flex-col md:flex-row items-start md:items-center ">
       <div className="relative order-2 md:order-1">{renderImage()}</div>
       <div className="md:pr-8 sm:max-w-md md:max-w-none order-1 md:order-1 mb-8 md:mb-0 md:px-8 lg:px-16">
-        <p className="font-bold inline text-4xl sm:text-4xl lg:text-5xl 2xl:text-7xl text-primary font-display leading-10">
+        <p className="font-bold inline text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl text-primary font-display leading-10">
           {shout?.title || 'Recent Shout:'} <br />
         </p>
         <p className="text-lg md:text-xl my-2 md:my-6 text-primary font-bold max-w-2xl xl:max-w-3xl">
