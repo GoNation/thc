@@ -25,7 +25,7 @@ const PageHero = props => {
             </Link>
           </div>
         )}
-        <h1 className="relative  text-5xl md:text-7xl xl:text-8xl text-white font-display  font-bold flex justify-center items-center uppercase mt-16 lg:mt-52  text-center">
+        <h1 className="relative  text-5xl sm:text-7xl xl:text-8xl text-white font-display  font-bold flex justify-center items-center uppercase mt-16 lg:mt-52  text-center">
           {props.pageTitle}
         </h1>
       </div>
