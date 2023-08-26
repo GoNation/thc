@@ -8,8 +8,8 @@ import printAddress from 'helpers/printing/printAddress';
 
 function MobileNavigation({ navVariants, business, logo }) {
   const animatedClassName =
-    'lg:hidden fixed top-0 left-0 w-full w-full h-screen bg-dark';
-  const mobileLogoSize = 150;
+    'lg:hidden fixed top-0 left-0 w-full w-full h-screen bg-secondary';
+  const mobileLogoSize = 64;
   return (
     <motion.div
       initial="closed"
@@ -18,15 +18,15 @@ function MobileNavigation({ navVariants, business, logo }) {
       variants={navVariants}
       className={animatedClassName}
     >
-      <div className="mt-auto py-8 px-6 text-xs md:text-base flex justify-center">
+      <div className="mt-auto py-8 px-6 text-xs md:text-base flex justify-start items-start">
         {/* <p className="mb-2">
             <span className="font-bold">Phone:</span> {business.phone}
           </p>
           <p className="mb-4">
             <span className="font-bold">Address:</span> {printAddress(business)}
           </p> */}
-        <div className="md:hidden">
-          <Link href="/">
+        <div className="md:hidden ">
+          <Link href="/" className="absolute top-10 left-8">
             <Image
               src={logo}
               width={mobileLogoSize}
@@ -40,9 +40,10 @@ function MobileNavigation({ navVariants, business, logo }) {
           </Link>
         </div>
       </div>
-      <div className="h-full overflow-y-auto text-white flex flex-col items-center">
+      <div className=" h-4/5 overflow-y-auto  flex flex-col items-center justify-between ">
         {routes.map(route => (
           <Link
+            className="text-white font-display font-bold uppercase  text-3xl  mini:text-xl"
             key={slugify(route.name, {
               lower: true,
             })}

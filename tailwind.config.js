@@ -14,6 +14,7 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {},
       fontFamily: {
         sans: ['BenchNine', 'sans-serif'],
         sansSerif: ['Noto San', 'system-ui'],

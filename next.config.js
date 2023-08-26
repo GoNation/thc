@@ -13,7 +13,6 @@ const nextConfig = {
     });
     return cfg;
   },
-  tlayout,
 };
 
 module.exports = nextConfig;

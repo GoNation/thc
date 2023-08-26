@@ -5,7 +5,7 @@ const iframeURL =
 const iframe = `<iframe src="${iframeURL}" width="600" height="450" className="w-full h-full"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`;
 const primaryColor = '#C6AB86';
 const secondaryColor = '#A1815B';
-const tertiaryColor = '#292D2F';
+const tertiaryColor = '#020202';
 const darkColor = '#010101';
 const backgroundColor = '#FEFEFE';
 const lightColor = '#E1DEDB';
@@ -25,17 +25,59 @@ const routes = [
     pageHero: 'about-pagehero',
   },
   {
-    name: 'Our People',
+    name: 'On Tap',
     isPrimaryCalledToAction: false,
-    pageHero: 'about-pagehero',
+    pageHero: '',
+    url: 'https://business.untappd.com/embeds/iframes/22705/86629 ',
   },
   {
-    name: 'Outer Link',
+    name: 'Drinks',
     isPrimaryCalledToAction: true,
     url: '',
     seoPageTitle: '',
   },
-
+  {
+    name: 'Menu',
+    isPrimaryCalledToAction: true,
+    url: '',
+    seoPageTitle: '',
+  },
+  {
+    name: 'Events',
+    isPrimaryCalledToAction: true,
+    url: '',
+    seoPageTitle: '',
+  },
+  {
+    name: 'Private Events & Parties',
+    isPrimaryCalledToAction: true,
+    url: '',
+    seoPageTitle: '',
+  },
+  {
+    name: 'Weddings',
+    isPrimaryCalledToAction: true,
+    url: '',
+    seoPageTitle: '',
+  },
+  {
+    name: 'News',
+    isPrimaryCalledToAction: true,
+    url: '',
+    seoPageTitle: '',
+  },
+  {
+    name: 'Gallery',
+    isPrimaryCalledToAction: true,
+    url: '',
+    seoPageTitle: '',
+  },
+  {
+    name: 'Gift Cards',
+    isPrimaryCalledToAction: true,
+    url: '',
+    seoPageTitle: '',
+  },
   {
     name: 'Contact',
     isPrimaryCalledToAction: false,
