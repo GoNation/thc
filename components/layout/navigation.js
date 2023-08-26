@@ -3,7 +3,7 @@ import slugify from 'slugify';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import { Fade as Hamburger } from 'hamburger-react';
+import { Sling as Hamburger } from 'hamburger-react';
 
 import { routes } from 'config';
 import printAddress from 'helpers/printing/printAddress';
@@ -122,7 +122,7 @@ const Navigation = ({ business, logoAsText = false }) => {
 
         {/* Hamburger (visible only when logo moves to the left) */}
 
-        <div className="lg:hidden absolute right-6">
+        <div className="lg:hidden absolute right-6 z-10">
           <Hamburger
             toggled={navIsOpen}
             toggle={setNavIsOpen}

@@ -53,6 +53,7 @@ const Layout = ({
         <meta name="twitter:title" content={getPageTitle()} />
         <meta name="twitter:description" content={getPageDescription()} />
         <meta name="twitter:image" content={buildAvatar(business)} />
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Head>
       <Navigation business={business} />
       <main className="">{children}</main>
