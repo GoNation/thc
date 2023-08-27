@@ -10,7 +10,6 @@ const TeamsView = ({ stories = [], business }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {stories.map((member, idx) => {
           const story = extractStory(member);
-          console.log(story);
           return (
             <div
               key={idx}

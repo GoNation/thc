@@ -3,7 +3,6 @@ import React from 'react';
 
 export default function PhotoFlex({ story }) {
   const extractedStory = extractStory(story);
-  console.log('extractedStory', extractedStory);
   const { images } = extractedStory;
   //    render images stacked on mobile and flex on medium and up using tailwind css
   return (

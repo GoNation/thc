@@ -40,12 +40,10 @@ const Layout = ({
 
   const retrievePageHeroImage = () => {
     const pathNameWithoutSlash = pathname.replace('/', '');
-    console.log('ss', pathNameWithoutSlash);
     const foundImage = findPoweredImage(
       pathNameWithoutSlash.toString(),
       poweredImagesData
     );
-    console.log(foundImage);
     if (foundImage) {
       return foundImage;
     }

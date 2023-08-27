@@ -11,7 +11,6 @@ import PageHero from 'components/heros/PageHero';
 const Contact = ({ aboutData, poweredImagesData, shoutData }) => {
   const poweredImage = findPoweredImage('contact-pagehero', poweredImagesData);
   const formBackground = findPoweredImage('contact-form', poweredImagesData);
-  console.log('formatted about data', formBackground);
   return (
     <Layout
       business={aboutData}
