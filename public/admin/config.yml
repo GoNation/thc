@@ -1,6 +1,7 @@
 backend:
-  name: test-repo
+  name: github
   branch: main
+  repo: GoNation/thc
 media_folder: public/img
 public_folder: img
 collections:
