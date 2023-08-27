@@ -21,13 +21,13 @@ const About = ({ aboutData, poweredImagesData, shoutData, storiesData }) => {
     >
       <section className="">
         <BasicContentContainer businessData={aboutData}></BasicContentContainer>
-        <SideBySideImage
+        {/* <SideBySideImage
           story={story}
           noNegativeMargin
           widthLeft="md:w-full lg:w-1/2 xl:w-1/3"
           widthRight="md:w-full lg:w-1/2 xl:w-2/3"
           leftAlign
-        />
+        /> */}
       </section>
     </Layout>
   );
