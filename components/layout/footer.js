@@ -34,7 +34,7 @@ const Footer = ({ business }) => {
                 className=""
               />
             </div>
-            <p className="mb-4 max-w-xs text-sm">
+            <p className="mb-4 max-w-xs text-sm text-white font-body">
               Crafting exceptional experiences with diverse beers, cocktails,
               and delightful food at The Hops Company in Connecticut.
             </p>
@@ -45,7 +45,7 @@ const Footer = ({ business }) => {
 
           {/* Discover */}
           <div className="md:col-span-1">
-            <h4 className="font-bold mb-2">Discover</h4>
+            <h4 className="font-bold mb-2 text-2xl">Discover</h4>
             <ul>
               {routes
                 .reduce((acc, route) => {
@@ -59,7 +59,10 @@ const Footer = ({ business }) => {
                 .filter(route => route?.tag?.includes('discover'))
                 .map(route => (
                   <li key={route.name}>
-                    <a href={route.url || '#'} className="hover:text-primary">
+                    <a
+                      href={route.url || '#'}
+                      className="hover:text-primary text-sm mb-3"
+                    >
                       {route.name}
                     </a>
                   </li>
@@ -69,7 +72,7 @@ const Footer = ({ business }) => {
 
           {/* Menus */}
           <div className="md:col-span-1">
-            <h4 className="font-bold mb-2">Menus</h4>
+            <h4 className="font-bold mb-2 text-2xl">Menus</h4>
             <ul>
               {routes
                 .reduce((acc, route) => {
@@ -83,7 +86,10 @@ const Footer = ({ business }) => {
                 .filter(route => route?.tag?.includes('menus'))
                 .map(route => (
                   <li key={route.name}>
-                    <a href={route.url || '#'} className="hover:text-primary">
+                    <a
+                      href={route.url || '#'}
+                      className="hover:text-primary text-sm mb-3"
+                    >
                       {route.name}
                     </a>
                   </li>
@@ -93,7 +99,7 @@ const Footer = ({ business }) => {
 
           {/* Contact */}
           <div className="md:col-span-1">
-            <h4 className=" font-bold mb-4">Contact</h4>
+            <h4 className="font-bold mb-2 text-2xl">Contact</h4>
             <div className="flex items-center mb-2">
               <span className="mr-1">
                 <FaMapMarkerAlt />

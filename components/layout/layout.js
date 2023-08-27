@@ -75,7 +75,6 @@ const Layout = ({
         <meta name="twitter:title" content={getPageTitle()} />
         <meta name="twitter:description" content={getPageDescription()} />
         <meta name="twitter:image" content={buildAvatar(business)} />
-        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Head>
       <Navigation business={business} />
       {homeSliderData ? (
@@ -95,7 +94,6 @@ const Layout = ({
       </div>
 
       <Footer logoAsText business={business} shoutData={shoutData} />
-      <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     </>
   );
 };

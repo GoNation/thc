@@ -1,22 +1,71 @@
 backend:
   name: test-repo
-  branch: main # Branch to update (optional; defaults to master)
+  branch: main
 media_folder: public/img
 public_folder: img
 collections:
-  - name: 'pages'
-    label: 'Pages'
-    files:
-      - label: 'Home'
-        name: 'home'
-        file: 'content/home.md'
+  - name: 'sidebysideimage'
+    label: 'Side By Side Image Variants'
+    folder: 'content/sidebysideimage'
+    create: true
+    fields:
+      - {
+          label: 'Template Key',
+          name: 'templateKey',
+          widget: 'hidden',
+          default: 'sidebysideimage',
+        }
+      - {
+          label: 'Side By Side Image Container Style',
+          name: 'sideBySideImageContainerStyle',
+          widget: 'string',
+        }
+      - {
+          label: 'Is Reversed',
+          name: 'isReversed',
+          widget: 'boolean',
+          default: false,
+        } # Added this line for the boolean value
+      - label: 'CTA Configuration'
+        name: 'ctaConfig'
+        widget: 'object'
         fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
-          - label: 'Cats'
-            name: 'cats'
-            widget: list
-            fields:
-              - { label: 'Name', name: 'name', widget: 'string' }
-              - { label: 'Description', name: 'description', widget: 'text' }
+          - { label: 'Base Style', name: 'baseStyle', widget: 'string' }
+          - {
+              label: 'Primary Filled Style',
+              name: 'primaryFilledStyle',
+              widget: 'string',
+            }
+          - { label: 'Tertiary Style', name: 'tertiaryStyle', widget: 'string' }
+          - { label: 'Default Style', name: 'defaultStyle', widget: 'string' }
+      - label: 'Content Configuration'
+        name: 'contentConfig'
+        widget: 'object'
+        fields:
+          - {
+              label: 'Container Style',
+              name: 'containerStyle',
+              widget: 'string',
+            }
+          - { label: 'Title Style', name: 'titleStyle', widget: 'string' }
+          - { label: 'Subtitle Style', name: 'subtitleStyle', widget: 'string' }
+          - {
+              label: 'Body Container Style',
+              name: 'bodyContainerStyle',
+              widget: 'string',
+            }
+      - label: 'Image Configuration'
+        name: 'imageConfig'
+        widget: 'object'
+        fields:
+          - {
+              label: 'Container Style',
+              name: 'containerStyle',
+              widget: 'string',
+            }
+          - {
+              label: 'Relative Container Style',
+              name: 'relativeContainerStyle',
+              widget: 'string',
+            }
+          - { label: 'Image Style', name: 'imageStyle', widget: 'string' }

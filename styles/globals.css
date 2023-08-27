@@ -268,3 +268,17 @@ footer a {
 footer li {
 	@apply mb-1;
 }
+
+.texture {
+
+background-image: url("https://www.transparenttextures.com/patterns/dark-wood.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+	@apply font-body font-light ;
+}
+
+
+
+.sidebybody p {
+	@apply text-dark;
+}

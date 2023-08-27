@@ -1,15 +1,21 @@
 import AppContext from 'context/AppContext';
 import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
 import Layout from 'components/layout/layout';
+import matter from 'gray-matter';
 
 import MultiStoryHero from 'components/story-components/MultiStoryHero';
 import ExpandableShout from 'components/shout/ExpandableShout';
+import SideBySideImage from 'components/story-components/SideBySideImage';
+import styles from 'styles';
+import fs from 'fs';
+import path from 'path';
 
 export default function Home({
   storiesData,
   aboutData,
   shoutData,
   poweredImagesData,
+  filesData,
 }) {
   // const routeData = () => routes.find('');
   //   const heroStory = findStoryByTag('1', storiesData.general);
@@ -40,6 +46,11 @@ export default function Home({
       return numA - numB; // This will sort in ascending order based on the numbers
     });
 
+  const findStoryByName = (name = '') =>
+    storiesData.general.find(story =>
+      story.name.toLowerCase().includes(name.toLowerCase())
+    );
+
   return (
     <AppContext.Provider value={{ storiesData, aboutData, shoutData }}>
       <Layout
@@ -58,12 +69,36 @@ export default function Home({
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
         ></iframe>
+        <section className="py-2 bg-tertiary px-2">
+          <SideBySideImage
+            config={filesData[0]}
+            story={findStoryByName('Homepage story 2')}
+          />
+          <SideBySideImage
+            config={filesData[2]}
+            story={findStoryByName('Homepage story 3')}
+          />
+
+          <SideBySideImage
+            config={filesData[0]}
+            story={findStoryByName('Homepage story 4')}
+          />
+        </section>
       </Layout>
     </AppContext.Provider>
   );
 }
 
 export async function getStaticProps() {
+  const directory = path.join(process.cwd(), 'content/sidebysideimage');
+  const filenames = fs.readdirSync(directory);
+
+  const filesData = filenames.map(filename => {
+    const filePath = path.join(directory, filename);
+    const fileContent = fs.readFileSync(filePath, 'utf8');
+    const parsedContent = matter(fileContent); // Use gray-matter to parse the file
+    return parsedContent.data; // Return only the frontmatter
+  });
   const {
     storiesData,
     poweredImagesData,
@@ -88,6 +123,7 @@ export async function getStaticProps() {
       aboutData,
       menuInventoryData,
       galleryData,
+      filesData,
     },
   };
 }

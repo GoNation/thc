@@ -1,41 +1,35 @@
 import React from 'react';
 import Link from 'next/link';
 
-const CTA = ({
-  children,
-  url,
-  primaryFilled,
-  unset,
-  classLis,
-  tertiary = false,
-}) => {
+const CTA = ({ children, url, primaryFilled, unset, tertiary }) => {
   const isExternalURL = url.toLowerCase().includes('.com');
   const target = isExternalURL ? '_blank' : '';
 
-  const retrieveStyle = () => {
-    if (primaryFilled) {
-      return 'bg-primary font-body text-white border-2 border-light px-12 py-4 border-2 hover:text-primary  hover:text-white text-lg uppercase font-normal  transition-all duration-1000 text-center';
-    }
-    if (unset) {
-      return '';
-    }
-    if (tertiary) {
-      return 'bg-tertiary text-secondary text-lg  px-12 py-4 border-2 border-secondary font-body text-dark hover:bg-secondary  hover:text-dark transition-all duration-1000 uppercase';
-    }
-    return 'bg-secondary text-tertiary text-lg  px-12 py-4 border-2 border-secondary font-body text-dark hover:bg-primary  hover:text-white transition-all duration-1000 uppercase';
-  };
+  const baseStyle =
+    'text-lg px-12 py-4 transition-all duration-1000 uppercase font-body';
+  const primaryFilledStyle =
+    'bg-primary text-white border-2 border-light hover:text-primary  hover:text-white';
+  const tertiaryStyle =
+    'bg-tertiary text-primary border-2 border-secondary text-dark hover:bg-secondary  hover:text-dark px-8 py-2';
+  const defaultStyle =
+    'bg-tertiary text-primary border-4 border-primary font-bold text-dark hover:bg-primary  hover:text-tertiary ease-in-out duration-500 ';
 
-  const style = retrieveStyle();
+  const style = unset
+    ? baseStyle
+    : primaryFilled
+    ? primaryFilledStyle
+    : tertiary
+    ? tertiaryStyle
+    : defaultStyle;
 
   return (
-    <Link href={url} className="">
-      <a
-        rel={target.length ? 'noopener noreferrer' : ''}
-        target={target}
-        className={style}
-      >
-        {children}
-      </a>
+    <Link
+      href={url}
+      rel={target.length ? 'noopener noreferrer' : ''}
+      target={target}
+      className={style}
+    >
+      {children}
     </Link>
   );
 };

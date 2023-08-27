@@ -1,31 +1,43 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import draftJS from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 
 const Body = ({ body }) => {
-  if (body.includes('{"blocks":')) {
-    const parsedBody = JSON.parse(body);
+  const [finalHtml, setFinalHtml] = useState('');
 
-    const contentState = draftJS.convertFromRaw(parsedBody); // convert into contentState
+  useEffect(() => {
+    const removeTrailingEmptyPTags = html => {
+      let tempDiv = document.createElement('div');
+      tempDiv.innerHTML = html;
+      const pElements = tempDiv.querySelectorAll('p');
+      for (let i = pElements.length - 1; i >= 0; i--) {
+        if (pElements[i].textContent.trim() === '') {
+          pElements[i].remove();
+        } else {
+          break;
+        }
+      }
+      setFinalHtml(tempDiv.innerHTML);
+    };
 
-    const editorState = draftJS.EditorState.createWithContent(contentState); // convert into Editorstate from contentState
+    if (body.includes('{"blocks":')) {
+      const parsedBody = JSON.parse(body);
+      const contentState = draftJS.convertFromRaw(parsedBody);
+      const editorState = draftJS.EditorState.createWithContent(contentState);
+      const rawContentState = draftJS.convertToRaw(
+        editorState.getCurrentContent()
+      );
+      let htmlMarkUp = draftToHtml(rawContentState, {
+        trigger: '#',
+        separator: ' ',
+      });
+      removeTrailingEmptyPTags(htmlMarkUp);
+    } else {
+      removeTrailingEmptyPTags(body);
+    }
+  }, [body]);
 
-    const rawContentState = draftJS.convertToRaw(
-      editorState.getCurrentContent()
-    ); // convert into rawContentState from editorState
-
-    const plainText = rawContentState.blocks
-      .map(block => (!block.text.trim() && '\n') || block.text)
-      .join('\n'); // create plain text with no html tags from blocks
-
-    const htmlMarkUp = draftToHtml(rawContentState, {
-      trigger: '#',
-      separator: ' ',
-    }); // creates the html
-    return <div dangerouslySetInnerHTML={{ __html: htmlMarkUp }}></div>;
-  } else {
-    return <div dangerouslySetInnerHTML={{ __html: body }}></div>;
-  }
+  return <div dangerouslySetInnerHTML={{ __html: finalHtml }}></div>;
 };
 
 export default Body;
