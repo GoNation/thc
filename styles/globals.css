@@ -280,5 +280,5 @@ background-image: url("https://www.transparenttextures.com/patterns/dark-wood.pn
 
 
 .sidebybody p {
-	@apply text-dark;
+	@apply text-dark text-xl lg:text-2xl xl:text-3xl;
 }

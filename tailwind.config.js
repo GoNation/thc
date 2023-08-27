@@ -39,6 +39,8 @@ module.exports = {
     'md:py-4',
     'py-24',
     'text-center',
+    '!order-last',
+    'md:order-last',
   ], // add classes here that you want to ensure aren't
 
   theme: {

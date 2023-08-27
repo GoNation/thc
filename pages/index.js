@@ -61,15 +61,17 @@ export default function Home({
         homeSliderData={homepageSliderStories}
       >
         <ExpandableShout isExpandable={false} shout={shoutData.shout} />
-        <iframe
-          className="h-96 sm:h-[400px] lg:h-[750px]"
-          src="https://www.youtube.com/embed/D9CMUOWmcZs?si=degvSOb4bd3r4mmk&amp;controls=0"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
-        <section className="py-2 bg-tertiary px-2">
+        <div className="bg-black p-8">
+          <iframe
+            className="h-96 sm:h-[400px] lg:h-[750px]"
+            src="https://www.youtube.com/embed/D9CMUOWmcZs?si=degvSOb4bd3r4mmk&amp;controls=0"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <section className="">
           <SideBySideImage
             config={filesData[0]}
             story={findStoryByName('Homepage story 2')}

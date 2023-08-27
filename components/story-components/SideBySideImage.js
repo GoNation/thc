@@ -22,7 +22,7 @@ const SideBySideImage = ({ story, config }) => {
   const linkAddress = story.links[linkTitle];
 
   return (
-    <div className={sideBySideImageContainerStyle}>
+    <div className={`${sideBySideImageContainerStyle} md:!gap-0 gap-0 !p-0 `}>
       <ImageComponent
         cloudinaryId={cloudinaryId}
         description={description}
