@@ -282,3 +282,13 @@ background-image: url("https://www.transparenttextures.com/patterns/dark-wood.pn
 .sidebybody p {
 	@apply text-white text-xl lg:text-2xl xl:text-3xl;
 }
+
+.page-hero {
+	@apply h-[60vh] lg:h-[85vh];
+}
+
+.weddings .slide {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

@@ -18,8 +18,8 @@ const ContentComponent = ({
       className={`${styles.containerStyle} ${reversed ? 'order-first' : ''}`}
     >
       <h4 className={`${styles.titleStyle} xl:text-7xl`}>{title}</h4>
-      {subtitle && <h5 className={finalStyles.subtitle}>{subtitle}</h5>}
-      <div className={`${styles.bodyContainerStyle} lg:py-12`}>
+      {subtitle && <h5 className={styles.subtitleStyle}>{subtitle}</h5>}
+      <div className={`${styles.bodyContainerStyle} lg:py-2`}>
         <Body body={body} />
       </div>
       {linkTitle && linkAddress && (
