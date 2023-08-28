@@ -6,7 +6,7 @@ const iframe = `<iframe src="${iframeURL}" width="600" height="450" className="w
 const primaryColor = '#C6AB86';
 const secondaryColor = '#A1815B';
 const tertiaryColor = '#020202';
-const darkColor = '#010101';
+const darkColor = '#181612';
 const backgroundColor = '#FEFEFE';
 const lightColor = '#E1DEDB';
 
