@@ -9,6 +9,7 @@ import SideBySideImage from 'components/story-components/SideBySideImage';
 import styles from 'styles';
 import fs from 'fs';
 import path from 'path';
+import LargeContentContainer from 'components/story-components/LargeContentContainer';
 
 export default function Home({
   storiesData,
@@ -85,6 +86,8 @@ export default function Home({
             config={filesData[0]}
             story={findStoryByName('Homepage story 4')}
           />
+
+          <LargeContentContainer story={findStoryByName('Homepage story 5')} />
         </section>
       </Layout>
     </AppContext.Provider>

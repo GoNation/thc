@@ -3,7 +3,6 @@ import { BsArrowDown } from 'react-icons/bs';
 import Image from 'next/image';
 import CTA from '../ui/CTA';
 import Body from '../ui/Body';
-import { Slide } from 'react-reveal';
 import { primaryColor } from 'config';
 
 const LargeContentContainer = ({ story, solidBg, hideIcon = false }) => {
@@ -36,38 +35,28 @@ const LargeContentContainer = ({ story, solidBg, hideIcon = false }) => {
               }
         }
       >
-        <div className="absolute top-0 left-0 w-full h-full bg-white opacity-80"></div>
-        <div className="max-w-xl m-auto text-white relative text-center bg-white border-4 border-light p-4 md:p-12 ">
+        <div className="absolute top-0 left-0 w-full h-full bg-dark opacity-10"></div>
+        <div className="max-w-md m-auto text-white relative text-center bg-white p-4 md:p-12  border-2 border-primary rounded">
           <div className="mb-6  text-md">
-            <Slide left>
-              <h4 className="text-2xl md:text-5xl font-display text-secondary ">
-                {story.title}
-              </h4>
-            </Slide>
+            <h4 className="text-2xl md:text-5xl font-display text-primary uppercase font-bold">
+              {story.title}
+            </h4>
           </div>
           <div className="mb-3  text-md">
-            <Slide left>
-              <h4 className="text-sm font-display text-dark">
-                {story.subtitle}
-              </h4>
-            </Slide>
+            <h4 className="text-sm font-display text-dark">{story.subtitle}</h4>
           </div>
-          <Slide right>
-            <div className="leading-loose text-base font-body text-dark mb-8">
-              <Body body={story.body} />
+          <div className="leading-loose text-base font-body text-dark mb-8">
+            <Body body={story.body} />
+          </div>
+          {linkTitle.length ? (
+            <div className="mb-4">
+              <CTA tertiary url={`${linkAddress}`}>
+                {linkTitle}
+              </CTA>
             </div>
-          </Slide>
-          <Slide left>
-            {linkTitle.length ? (
-              <div className="mb-4">
-                <CTA primaryFilled url={`${linkAddress}`}>
-                  {linkTitle}
-                </CTA>
-              </div>
-            ) : (
-              ''
-            )}
-          </Slide>
+          ) : (
+            ''
+          )}
         </div>
       </div>
     );
@@ -91,23 +80,17 @@ const LargeContentContainer = ({ story, solidBg, hideIcon = false }) => {
         <div className="absolute top-0 left-0 w-full h-full "></div>
         <div className="max-w-xl m-auto text-dark relative text-center">
           <div className="mb-6 leading-7 text-md">
-            <Slide left>
-              <h4 className="text-3xl lg:text-4xl  font-display text-primary uppercase">
-                {story.title}
-              </h4>
-            </Slide>
+            <h4 className="text-3xl lg:text-4xl  font-display text-primary uppercase">
+              {story.title}
+            </h4>
           </div>
-          <Slide right>
-            <div className="my-12 mt-6 leading-loose text-base font-body text-dark">
-              <Body body={story.body} />
-            </div>
-          </Slide>
+          <div className="my-12 mt-6 leading-loose text-base font-body text-dark">
+            <Body body={story.body} />
+          </div>
           {linkTitle?.length ? (
-            <Slide left>
-              <CTA primaryFilled url={`${linkAddress}`}>
-                {linkTitle}
-              </CTA>
-            </Slide>
+            <CTA tertiary url={`${linkAddress}`}>
+              {linkTitle}
+            </CTA>
           ) : (
             ''
           )}
