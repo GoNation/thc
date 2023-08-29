@@ -105,7 +105,6 @@ export default function Home({
           />
 
           <LargeContentContainer story={findStoryByName('Homepage story 5')} />
-          <img src="/wedding.svg" alt="" />
         </section>
       </Layout>
     </AppContext.Provider>
