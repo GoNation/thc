@@ -6,7 +6,7 @@ function NetlifyForm({ name, children, ...props }) {
       name={name}
       method="POST"
       data-netlify="true"
-      className="bg-background p-4 md:p-8 rounded shadow-md"
+      className="bg-background p-4 md:p-8 rounded shadow-md max-w-2xl"
       {...props}
     >
       <input type="hidden" name="form-name" value={name} />
