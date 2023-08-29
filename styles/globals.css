@@ -311,7 +311,7 @@ background-image: url("https://www.transparenttextures.com/patterns/dark-wood.pn
 }
 
 .about-section h4 {
-	@apply text-2xl lg:text-3xl xl:text-4xl font-bold ;
+	@apply text-2xl lg:text-3xl xl:text-4xl font-bold rounded-sm;
 }
 
 /* Every other li within ul should be bold starting with the first one */
@@ -327,4 +327,10 @@ background-image: url("https://www.transparenttextures.com/patterns/dark-wood.pn
 .about-section ul li,
 .about-section h4 {
 	@apply text-white;
+}
+
+.tex {
+background-color: #c5ab86;
+background-image: url("https://www.transparenttextures.com/patterns/crossword.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }

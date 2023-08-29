@@ -22,9 +22,9 @@ const About = ({ aboutData, poweredImagesData, shoutData, storiesData }) => {
       shoutData={shoutData}
       poweredImagesData={poweredImagesData}
     >
-      <section className="about-section p-4 bg-primary">
+      <section className="about-section p-4 bg-primary tex">
         {/* <BasicContentContainer businessData={aboutData}></BasicContentContainer> */}
-        <div className="bg-dark max-w-xl mx-auto -mt-20 lg:-mt-32 relative z-10 p-4 ">
+        <div className="rounded bg-dark max-w-xl mx-auto -mt-20 md:-mt-28 lg:-mt-32 relative z-10 p-4 ">
           <Body body={story.body} />
         </div>
         {/* <SideBySideImage
