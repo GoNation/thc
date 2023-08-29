@@ -6,11 +6,13 @@ import Phone from './Phone';
 import SocialLInks from '../ui/SocialLinks';
 
 const DetailsBox = ({ aboutData, title = 'Contact Us' }) => {
-  const detailClassList = 'mb-3 text-lg text-dark';
+  const detailClassList = 'mb-1 text-lg text-dark text-sm';
   return (
-    <div className="font-body text-white">
-      <div className="text-center">
-        <Title classList="mb-4">{title}</Title>
+    <div className="font-body text-dark bg-white border-secondary border-2 mt-2 ml-2 px-4 py-2 md:px-8 md:pr-10">
+      <div className="text-left">
+        <h4 className="font-display font-bold uppercase text-xl md:text-2xl">
+          {title}
+        </h4>
         <p className={detailClassList}>
           <a
             href={getGoogleString(aboutData)}
@@ -24,7 +26,7 @@ const DetailsBox = ({ aboutData, title = 'Contact Us' }) => {
           <Phone {...aboutData} />
         </p>
         <div className={detailClassList}>
-          <div className="flex justify-center">
+          <div className="flex justify-start">
             <SocialLInks links={aboutData.links} fill="#000" />
           </div>
         </div>

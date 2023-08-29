@@ -7,6 +7,7 @@ import Title from 'components/ui/Title';
 import { iframe } from 'config';
 import findPoweredImage from 'helpers/general/findPoweredImage';
 import PageHero from 'components/heros/PageHero';
+import GenericContactForm from 'components/contact/GenericContactForm';
 
 const Contact = ({ aboutData, poweredImagesData, shoutData }) => {
   const poweredImage = findPoweredImage('contact-pagehero', poweredImagesData);
@@ -18,34 +19,30 @@ const Contact = ({ aboutData, poweredImagesData, shoutData }) => {
       shoutData={shoutData}
       poweredImagesData={poweredImagesData}
     >
-      <PageHero img={poweredImage} pageTitle="Contact" />
-      <div className="lg:flex  flex-wrap items-start">
-        <div className="bg-lighter flex justify-center items-center flex-col py-8 px-4  lg:min-h-screen md:px-2  font-body lg:w-1/2">
-          <DetailsBox aboutData={aboutData} title="" />
-          <div className="my-4 text-center !text-dark">
-            <Title>Hours</Title>
-            <HoursDisplay {...aboutData} />
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] md:col-span-2">
+          <div
+            dangerouslySetInnerHTML={{ __html: iframe }}
+            className="w-full h-full"
+          ></div>
+          <div className="absolute top-0 left-0">
+            <DetailsBox aboutData={aboutData} title={aboutData.name} />
           </div>
         </div>
-        <div
-          className="p-4 lg:w-1/2"
-          style={{
-            backgroundImage: `linear-gradient(
-          rgba(0, 0, 0, 0.7),
-          rgba(0, 0, 0, 0.7)
-        ), url(https://res.cloudinary.com/gonation/w_1800/q_auto/f_auto/${formBackground?.cloudinaryId})`,
-          }}
-        >
-          <h4 className="text-white text-center my-2 text-xl md:text-2xl">
-            Please Complete the Form Below for Any Inquiry
-          </h4>
-          <ContactForm></ContactForm>
-        </div>
-        <div className="w-full">
-          <div
-            className="w-full   h-64 md:h-[350px]"
-            dangerouslySetInnerHTML={{ __html: iframe }}
-          ></div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:col-span-2 bg-dark pt-4">
+          <div className="md:col-span-1">
+            <GenericContactForm />
+          </div>
+
+          <div className="text-center md:col-span-1 flex justify-center items-center bg-light p-4">
+            <div className="bg-white w-full h-full p-4 flex flex-col justify-center items-center text-lg lg:text-xl">
+              <h4 className="font-display text-xl md:text-3xl uppercase xl:text-4xl">
+                Hours
+              </h4>
+              <HoursDisplay {...aboutData} />
+            </div>
+          </div>
         </div>
       </div>
     </Layout>
