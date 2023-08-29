@@ -292,3 +292,15 @@ background-image: url("https://www.transparenttextures.com/patterns/dark-wood.pn
 	justify-content: center;
 	align-items: center;
 }
+
+.white-sideby {
+	@apply text-xl lg:text-2xl xl:text-3xl;
+}
+
+.event:hover .eventImg {
+  transform: scale(1.1);
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px #000000;
+}
