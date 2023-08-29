@@ -24,9 +24,12 @@ const LargeContentContainer = ({ story, solidBg, hideIcon = false }) => {
       ? Object.keys(story.links)[0]
       : '';
     const linkAddress = story.links[linkTitle];
+    const noStoryContent = !story.title || !story.subtitle;
     return (
       <div
-        className={`xl:bg-fixed screen w-full bg-cover flex justify-center items-center p-7 px-12 py-16 relative bg-center  ${solidBg}`}
+        className={`xl:bg-fixed screen w-full bg-cover flex justify-center items-center  relative bg-center  ${solidBg} ${
+          noStoryContent ? 'py-32 md:py-64' : 'p-7 px-12 py-16'
+        }`}
         style={
           solidBg
             ? {}
@@ -36,16 +39,22 @@ const LargeContentContainer = ({ story, solidBg, hideIcon = false }) => {
         }
       >
         <div className="absolute top-0 left-0 w-full h-full bg-dark opacity-10"></div>
-        <div className="max-w-md m-auto text-white relative text-center bg-white p-4 md:p-12  border-2 border-primary rounded">
+        <div
+          className={`max-w-md m-auto text-white relative text-center bg-black bg-opacity-80 p-4 md:p-12  border-2 border-primary rounded ${
+            noStoryContent && 'hidden'
+          }`}
+        >
           <div className="mb-6  text-md">
             <h4 className="text-2xl md:text-5xl font-display text-primary uppercase font-bold">
               {story.title}
             </h4>
           </div>
           <div className="mb-3  text-md">
-            <h4 className="text-sm font-display text-dark">{story.subtitle}</h4>
+            <h4 className="text-sm font-display text-white">
+              {story.subtitle}
+            </h4>
           </div>
-          <div className="leading-loose text-base font-body text-dark mb-8">
+          <div className="leading-loose text-base font-body mb-8 text-white">
             <Body body={story.body} />
           </div>
           {linkTitle.length ? (

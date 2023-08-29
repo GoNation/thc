@@ -44,12 +44,12 @@ function ExpandableShout({ shout, isExpandable = true }) {
         <p className="font-bold inline text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl text-primary font-display leading-10">
           {shout?.title || 'Recent Shout:'} <br />
         </p>
-        <p className="text-lg md:text-xl my-2 md:my-6 text-primary font-bold max-w-2xl xl:max-w-3xl">
+        <p className="text-lg md:text-xl lg:text-2xl my-2 md:my-6 text-white font-bold max-w-2xl xl:max-w-3xl">
           {shout?.text}
         </p>
 
         <Link target={linkIsUrl} href={`${linkAddress}`}>
-          <button className="bg-transparent text-primary py-2 px-8 font-bold uppercase text-base mt-2 border-primary border-2 xl:text-lg hover:bg-primary hover:text-white transition-all duration-500 ease">
+          <button className="bg-transparent text-primary py-2 px-8 font-bold uppercase text-base mt-2 border-primary border-2 xl:text-xl hover:bg-primary hover:text-white transition-all duration-500 ease">
             {linkTitle}
           </button>
         </Link>

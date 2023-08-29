@@ -5,9 +5,9 @@ const PageHero = props => {
     return <div className=""></div>;
   }
   return (
-    <div className="h-screen">
+    <div className="">
       <div
-        className="h-4/5 bg-cover flex justify-center items-center relative  p-4 flex-col"
+        className="page-hero bg-cover flex justify-center items-center relative  p-4 flex-col"
         style={{
           backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%),
   		url(https://res.cloudinary.com/gonation/w_1800/q_auto/f_auto/${props.img.cloudinaryId})`,

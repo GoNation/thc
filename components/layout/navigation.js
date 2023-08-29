@@ -76,7 +76,7 @@ const Navigation = ({ business, logoAsText = false }) => {
             >
               <Link
                 href={route.url || slugify(route.name, { lower: true })}
-                className="text-white text-sm md:text-base uppercase font-bold hover:underline inline-flex items-center"
+                className="text-white text-sm md:text-base lg:text-xl uppercase font-bold hover:underline inline-flex items-center"
               >
                 {route.name}
                 {route.children && (

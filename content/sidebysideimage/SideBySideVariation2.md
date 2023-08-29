@@ -12,7 +12,7 @@ contentConfig:
   containerStyle: bg-background flex flex-col items-center justify-center py-23 px-8
   titleStyle: text-primary font-display text-4xl md:text-5xl font-bold uppercase
   subtitleStyle: text-primary font-display text-2xl uppercase
-  bodyContainerStyle: font-bold my-2 mb-4 text-center max-w-lg mx-auto
+  bodyContainerStyle: font-bold my-2 mb-4 text-center max-w-lg mx-auto sidebybody
 imageConfig:
   containerStyle: h-96
   relativeContainerStyle: relative h-full w-full pb-100%
