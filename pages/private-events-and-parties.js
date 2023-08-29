@@ -30,7 +30,8 @@ const PrivateEventsAndParties = ({
       business={aboutData}
       poweredImagesData={poweredImagesData}
       shoutData={shoutData}
-      pageTitle="Private Events & Parties"
+      pageTitle="Private Parties & Events"
+      customPageHero="parties-pagehero"
     >
       <section className="min-h-screen">
         <LargeContentContainer

@@ -1,4 +1,6 @@
 export default (imgID, data) => {
+  const exactFind = data.find(img => img.poweredId === imgID);
+  if (exactFind) return exactFind;
   const imgIdWords = imgID.toLowerCase().split('-');
 
   return data.find(img => {

@@ -21,6 +21,7 @@ const Layout = ({
   shoutData,
   homeSliderData,
   poweredImagesData,
+  customPageHero = null,
 }) => {
   const router = useRouter();
   const { pathname } = router;
@@ -41,7 +42,7 @@ const Layout = ({
   const retrievePageHeroImage = () => {
     const pathNameWithoutSlash = pathname.replace('/', '');
     const foundImage = findPoweredImage(
-      pathNameWithoutSlash.toString(),
+      customPageHero || pathNameWithoutSlash,
       poweredImagesData
     );
     if (foundImage) {
