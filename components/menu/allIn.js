@@ -43,7 +43,7 @@ const AllIn = ({ menuData, setModalActive, onBackClick }) => {
           }`}
         >
           {section.name ? (
-            <h4 className="text-2xl lg:text-3xl uppercase  text-left text-white font-bold  border-b border-primary font-display md:ml-0">
+            <h4 className="text-2xl lg:text-4xl uppercase  text-left text-white font-bold  border-b border-primary font-display md:ml-0">
               <span>{section.name}</span>
             </h4>
           ) : (

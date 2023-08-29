@@ -11,7 +11,7 @@ const Events = ({ aboutData, poweredImagesData, shoutData, eventsData }) => {
       shoutData={shoutData}
       pageTitle="Events"
     >
-      <section className="py-4 md:py-12">
+      <section className="py-4 md:py-12 bg-dark">
         {/* Other content will go here */}
         <EventsComponent
           pageTitle={'Events'}

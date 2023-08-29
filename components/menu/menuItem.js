@@ -35,7 +35,7 @@ const MenuItem = ({
     : item.imageUrl;
 
   const menuNameClassList =
-    'menuItemName w-full block text-sm  text-white inline-flex font-body flex w-full justify-between';
+    'menuItemName w-full block text-sm  text-white inline-flex font-body flex w-full justify-between md:text-lg lg:text-xl font-bold';
   const descriptionClassList =
     'menuItemDescription  max-w-xs text-sm font-light font-display font-bold font-body';
   const defaultType = () => (

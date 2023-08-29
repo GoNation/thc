@@ -32,7 +32,7 @@ export default function EventItem({ event, variantName }) {
   return (
     <div
       key={_id}
-      className={`eventItemContainer ${_id} relative overflow-hidden cursor-pointer shadow-2xl`}
+      className={`eventItemContainer ${_id} relative overflow-hidden cursor-pointer border-4 border-light rounded`}
       onClick={handleEventClick}
     >
       <Image
