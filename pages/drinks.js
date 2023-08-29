@@ -23,12 +23,12 @@ const Drinks = ({
       <div className="menu-wrap py-8">
         <Container size="large">
           <div className="lg:pb-32 ">
-            {/* <GoNationMenu
+            <GoNationMenu
               gonationID={gonationId}
               businessData={aboutData}
               menuData={menuInventoryData[0]}
               mode={'tabs'}
-            /> */}
+            />
           </div>
         </Container>
       </div>
@@ -44,7 +44,7 @@ export async function getStaticProps() {
       poweredImages: true,
       about: true,
       menuInventory: true,
-      menuPL: 1,
+      menuPL: 2,
       shout: true,
     });
   return {

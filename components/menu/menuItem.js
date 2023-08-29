@@ -35,9 +35,9 @@ const MenuItem = ({
     : item.imageUrl;
 
   const menuNameClassList =
-    'menuItemName w-full block text-sm  tracking-widest text-dark text-black inline-flex font-body flex w-full justify-between';
+    'menuItemName w-full block text-sm  text-white inline-flex font-body flex w-full justify-between';
   const descriptionClassList =
-    'menuItemDescription  mt-6 max-w-xs text-md font-light font-display font-bold font-body text-xs md:text-sm';
+    'menuItemDescription  max-w-xs text-md font-light font-display font-bold font-body text-xs md:text-sm';
   const defaultType = () => (
     <div className="menuItemInnerContainer  m-auto w-full h-full relative ">
       <div className="absolute  h-full "></div>
@@ -87,9 +87,9 @@ const MenuItem = ({
           {item.variants.length === 1 && item.variants[0].label === '' ? (
             <div className="menuItemNamePriceContainer w-full">
               <p className={menuNameClassList}>
-                <div>
+                <span>
                   {item.name} <span className=""></span>
-                </div>
+                </span>
                 <Price withDollar={true} variants={item.variants} toSide />{' '}
               </p>
               {item.desc && (
@@ -120,9 +120,7 @@ const MenuItem = ({
   );
 
   return (
-    <div
-      className={`w-full xl:px-8 pl-4 pr-2 lg:px-2  text-black md:w-1/2 md:mb-4`}
-    >
+    <div className={`w-full   text-white md:w-1/2 md:mb-4`}>
       {getMenuItemType()}
     </div>
   );

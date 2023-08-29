@@ -334,3 +334,13 @@ background-color: #c5ab86;
 background-image: url("https://www.transparenttextures.com/patterns/crossword.png");
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
+
+/* display: none the first child inside of .everyday-menu */
+.everyday-menu > div:first-child {
+  display: none;
+}
+
+/* text-align: center the second child inside of .everyday-menu */
+.everyday-menu > div:nth-child(2) > div:nth-child(1) h4 {
+  text-align: center;
+}

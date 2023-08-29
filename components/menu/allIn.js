@@ -30,24 +30,27 @@ const AllIn = ({ menuData, setModalActive, onBackClick }) => {
     return (
       <div
         key={shortid.generate()}
-        className={`allInContainer flex flex-wrap  ${slugify(section.name, {
-          lower: true,
-        })}`}
+        className={`allInContainer flex flex-wrap w-full  mt-4 ${slugify(
+          section.name,
+          {
+            lower: true,
+          }
+        )}`}
       >
         <div
-          className={`menuContainer text-left w-full my-5 md:my-12 md:mx-4 shadow-2xl grid-rows-3 grid-cols-2 py-2 ${
+          className={`menuContainer text-left w-full  md:mx-4 grid-rows-3 grid-cols-2 py-2 ${
             removeSections.includes(section.name.toLowerCase()) ? '' : ''
           }`}
         >
           {section.name ? (
-            <h4 className="text-xl lg:text-3xl font-lighter uppercase  text-left px-4 md:px-6 text-primary  mt-6 mb-4 border-b border-primary font-display md:ml-0">
+            <h4 className="text-2xl lg:text-3xl uppercase  text-left text-white font-bold  border-b border-primary font-display md:ml-0">
               <span>{section.name}</span>
             </h4>
           ) : (
             ''
           )}
           {section.desc ? (
-            <p className="menuSectionDescription text-center px-4 md:px-6">
+            <p className="menuSectionDescription  text-light mb-4 mt-1 font-body text-xs max-w-lg text-left">
               {section.desc}
             </p>
           ) : (
