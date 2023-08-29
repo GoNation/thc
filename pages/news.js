@@ -1,17 +1,57 @@
 import React from 'react';
 import Layout from 'components/layout/layout';
 import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
+import extractStory from 'helpers/extractStory';
+import buildAvatar from 'helpers/general/buildAvatar';
 
-const News = ({ aboutData, poweredImagesData, shoutData }) => {
+const News = ({ aboutData, poweredImagesData, storiesData }) => {
+  const { press } = storiesData;
   return (
     <Layout
       business={aboutData}
       poweredImagesData={poweredImagesData}
-      shoutData={shoutData}
       pageTitle="News"
     >
-      <section className="min-h-screen">
-        {/* Other content will go here */}
+      <section className="min-h-screen p-4 xl:py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-w-7xl mx-auto">
+          {press.map(item => {
+            const {
+              firstImage,
+              images,
+              title,
+              subtitle,
+              linkAddress,
+              linkTitle,
+            } = extractStory(item);
+            return (
+              <div
+                key={item.id}
+                className="bg-background p-4 rounded shadow-md"
+              >
+                <img
+                  src={
+                    images[0] ||
+                    buildAvatar({
+                      ...aboutData,
+                    })
+                  }
+                  alt={item.title}
+                  className="mb-4 rounded"
+                />
+                <h3 className="text-primary font-display mb-2 text-xl sm:text-xl md:text-2xl  font-bold">
+                  {title}
+                </h3>
+                <p className="text-dark mb-8">{subtitle}</p>
+                <a
+                  href={linkAddress}
+                  className="bg-dark text-primary border-primary border rounded px-8 py-2 uppercase hover:bg-transparent hover:text-dark transition-all duration-300"
+                >
+                  {linkTitle}
+                </a>
+              </div>
+            );
+          })}
+        </div>
       </section>
     </Layout>
   );
@@ -20,19 +60,20 @@ const News = ({ aboutData, poweredImagesData, shoutData }) => {
 export default News;
 
 export async function getStaticProps() {
-  const { poweredImagesData, aboutData, galleryData, shoutData } =
+  const { poweredImagesData, aboutData, galleryData, storiesData } =
     await fetchGoNationData({
       poweredImages: true,
       about: true,
       gallery: true,
       shout: true,
+      stories: true,
     });
   return {
     props: {
       poweredImagesData,
       aboutData,
       galleryData,
-      shoutData,
+      storiesData,
     },
   };
 }
