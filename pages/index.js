@@ -73,10 +73,27 @@ export default function Home({
           ></iframe>
         </div>
         <section className="">
-          <SideBySideImage
-            config={filesData[0]}
-            story={findStoryByName('Homepage story 2')}
-          />
+          <div className="relative">
+            <span className="">
+              <img
+                src="/ripple.svg"
+                alt=""
+                className="absolute -top-1 w-full z-10 left-0 right-0"
+              />
+            </span>
+            <SideBySideImage
+              config={filesData[0]}
+              story={findStoryByName('Homepage story 2')}
+            />
+            <span className="">
+              <img
+                src="/ripple.svg"
+                alt=""
+                className="rotate-180 absolute -bottom-1 w-full"
+              />
+            </span>
+          </div>
+
           <SideBySideImage
             config={filesData[2]}
             story={findStoryByName('Homepage story 3')}
