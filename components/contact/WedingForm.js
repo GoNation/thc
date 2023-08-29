@@ -2,7 +2,10 @@ import NetlifyForm from './NetlifyForm';
 
 export default function WeddingForm({ title, text }) {
   return (
-    <div className="flex justify-center items-center bg-lighter p-4  	lg:py-12 ">
+    <div
+      className="flex justify-center items-center bg-lighter p-4  	lg:py-12 "
+      id="wedding-form"
+    >
       <NetlifyForm name="weddingForm">
         {title || text ? (
           <div className="max-w-xl mb-4">
