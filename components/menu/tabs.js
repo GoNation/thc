@@ -48,7 +48,7 @@ const Tabs = ({
   };
 
   return (
-    <div className="flex flex-wrap items-center justify-start max-w-[732px] m-auto">
+    <div className="flex flex-wrap  items-center justify-start max-w-[732px] m-auto xl:m-0 xl:flex-col">
       {activeSection && renderChildSections()}
     </div>
   );

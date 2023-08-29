@@ -30,7 +30,7 @@ const AllIn = ({ menuData, setModalActive, onBackClick }) => {
     return (
       <div
         key={shortid.generate()}
-        className={`allInContainer flex flex-wrap w-full  mt-4 ${slugify(
+        className={`allInContainer flex flex-wrap w-full  mt-4 xl:mt-0 ${slugify(
           section.name,
           {
             lower: true,

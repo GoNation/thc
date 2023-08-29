@@ -20,7 +20,7 @@ const TabsView = ({ menuData, setModalActive }) => {
   );
 
   return (
-    <div>
+    <div className="xl:flex">
       <Tabs
         menuData={menuData}
         onCellClick={onCellClick}
