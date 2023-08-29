@@ -62,9 +62,16 @@ export default function Home({
         homeSliderData={homepageSliderStories}
       >
         <ExpandableShout isExpandable={false} shout={shoutData.shout} />
-        <div className="bg-black p-8">
+        <div className="bg-black p-8 relative">
+          <span className="">
+            <img
+              src="/ripple.svg"
+              alt=""
+              className="rotate-180 absolute -top-4 md:-top-4 lg:-top-8 left-0 right-0 w-full"
+            />
+          </span>
           <iframe
-            className="h-96 sm:h-[400px] lg:h-[750px]"
+            className="h-96 sm:h-[400px] lg:h-[750px] pt-4 md:pt-0"
             src="https://www.youtube.com/embed/D9CMUOWmcZs?si=degvSOb4bd3r4mmk&amp;controls=0"
             title="YouTube video player"
             frameborder="0"
@@ -78,20 +85,13 @@ export default function Home({
               <img
                 src="/ripple.svg"
                 alt=""
-                className="absolute -top-1 w-full z-10 left-0 right-0"
+                className="absolute top-0 md:-top-1 w-full z-10 left-0 right-0"
               />
             </span>
             <SideBySideImage
               config={filesData[0]}
               story={findStoryByName('Homepage story 2')}
             />
-            <span className="">
-              <img
-                src="/ripple.svg"
-                alt=""
-                className="rotate-180 absolute -bottom-1 w-full"
-              />
-            </span>
           </div>
 
           <SideBySideImage
@@ -105,6 +105,7 @@ export default function Home({
           />
 
           <LargeContentContainer story={findStoryByName('Homepage story 5')} />
+          <img src="/wedding.svg" alt="" />
         </section>
       </Layout>
     </AppContext.Provider>

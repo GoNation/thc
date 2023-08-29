@@ -68,7 +68,7 @@ function ExpandableShout({ shout, isExpandable = true }) {
       }}
     >
       <div className=" absolute left-0 top-0 w-full h-full bg-black bg-opacity-40 md:bg-opacity-0 md:bg-gradient-to-r md:from-black md:via-black/60 md:to-transparent"></div>
-      <p className="absolute bottom-1 right-1 text-xs italic text-secondary">
+      <p className="absolute bottom-4 right-4 text-xs md:text-sm xl:text-base italic text-white">
         Shouted {dayjs(shout?.createdAt).fromNow()}
       </p>
       {expanded ? expandedView : null}
