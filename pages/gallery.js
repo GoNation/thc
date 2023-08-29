@@ -17,7 +17,7 @@ const Gallery = ({ aboutData, poweredImagesData, galleryData, shoutData }) => {
       shoutData={shoutData}
       poweredImagesData={poweredImagesData}
     >
-      <section className="min-h-screen with-texture  px-6 bg-dark">
+      <section className="min-h-screen with-texture  px-0 bg-dark py-4">
         <Masonry data={galleryData.filter(filterGalleryAlbums)}></Masonry>
       </section>
     </Layout>

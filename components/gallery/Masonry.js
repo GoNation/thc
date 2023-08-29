@@ -27,8 +27,8 @@ const Masonry = ({ data }) => {
           <div key={img.id} className={`${getDynamicClass()} subtle-shadow`}>
             <Image
               src={img.imageUrl}
-              width={800}
-              height={800}
+              width={400}
+              height={400}
               className="object-cover h-full w-full subtle-shadow"
               alt={img.caption || 'Masonry gallery'}
             />
