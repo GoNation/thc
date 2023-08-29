@@ -1,15 +1,13 @@
 import React from 'react';
-import Image from 'next/image';
-import gnPowerBlack from 'assets/gn-power-black.svg';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+
 import Navigation from './navigation';
 import Footer from './footer';
-import FixedCallToActions from './FixedCallToActions';
-import buildAvatar from '../../helpers/general/buildAvatar';
+import buildAvatar from 'helpers/general/buildAvatar';
 import { domain } from '../../config';
-import slugifyLower from '../../helpers/printing/slugifyLower';
+import slugifyLower from 'helpers/printing/slugifyLower';
 import MultiStoryHero from 'components/story-components/MultiStoryHero';
-import { useRouter } from 'next/router';
 import findPoweredImage from 'helpers/general/findPoweredImage';
 import PageHero from 'components/heros/PageHero';
 

@@ -3,10 +3,8 @@ import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
 import Layout from 'components/layout/layout';
 import matter from 'gray-matter';
 
-import MultiStoryHero from 'components/story-components/MultiStoryHero';
 import ExpandableShout from 'components/shout/ExpandableShout';
 import SideBySideImage from 'components/story-components/SideBySideImage';
-import styles from 'styles';
 import fs from 'fs';
 import path from 'path';
 import LargeContentContainer from 'components/story-components/LargeContentContainer';
@@ -18,22 +16,6 @@ export default function Home({
   poweredImagesData,
   filesData,
 }) {
-  // const routeData = () => routes.find('');
-  //   const heroStory = findStoryByTag('1', storiesData.general);
-  //   const homeAboutStory = findStoryByTag('2', storiesData.general);
-  //   const homePhotoSlider = findStoryByTag('3', storiesData.general);
-  //   const homeBookingStory = findStoryByTag('4', storiesData.general);
-  //   const blockPhotosStory = findStoryByTag('5', storiesData.general);
-  //   const homeServicesStory = findStoryByTag('6', storiesData.general);
-  //   const ctaStories = [
-  //     findStoryByTag('7', storiesData.general),
-  //     findStoryByTag('8', storiesData.general),
-  //     findStoryByTag('9', storiesData.general),
-  //   ];
-  //   const homeOurPeopleStory = findStoryByTag('10', storiesData.general);
-  //   const homePhotoBlockStory = findStoryByTag('11', storiesData.general);
-  //   const homeCancellationStory = findStoryByTag('12', storiesData.general);
-  //   const homeContactInfoStory = findStoryByTag('13', storiesData.general);
   const homepageSliderStories = storiesData?.general
     ?.filter(
       story =>
