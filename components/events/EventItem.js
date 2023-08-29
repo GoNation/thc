@@ -32,7 +32,7 @@ export default function EventItem({ event, variantName }) {
   return (
     <div
       key={_id}
-      className={`eventItemContainer ${_id} relative overflow-hidden cursor-pointer`}
+      className={`eventItemContainer ${_id} relative overflow-hidden cursor-pointer shadow-2xl`}
       onClick={handleEventClick}
     >
       <Image
@@ -50,9 +50,9 @@ export default function EventItem({ event, variantName }) {
       </h4>
 
       {isDetailVisible && (
-        <div className="eventDetailOverlay absolute inset-0 bg-dark opacity-90 flex flex-col p-4">
+        <div className="eventDetailOverlay absolute inset-0 bg-dark opacity-90 flex flex-col p-4 ">
           <div className="eventItemContent text-lg text-white">
-            <h4 className="text-white font-display text-4xl uppercase md:text-5xl lg:text-6xl justify-start    mb-2">
+            <h4 className="text-white font-display text-4xl uppercase md:text-3xl  justify-start    mb-2">
               {name}
             </h4>
             <div className="eventItemDateContainer flex flex-col items-start text-white">
@@ -65,11 +65,11 @@ export default function EventItem({ event, variantName }) {
                 <EventDate date={starts} variantName={variantName} />
               )}
             </div>
-            <p className="eventTime text-left my-2 text-white text-xl md:text-2xl lg:text-3xl">
+            <p className="eventTime text-left my-2 text-white text-xl md:text-2xl">
               {`${dayjs(starts).format('h:mm A')}`} -{' '}
               {`${dayjs(ends).format('h:mm A')}`}
             </p>
-            <p className="eventItemDescription text-white max-w-md text-lg md:text-xl lg:text-2xl">
+            <p className="eventItemDescription text-white max-w-md text-lg md:text-xl">
               {description}
             </p>
             {ctas && (

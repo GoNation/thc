@@ -7,20 +7,26 @@ import { businessId, routes } from 'config';
 import findPoweredImage from 'helpers/general/findPoweredImage';
 import SideBySideImage from 'components/story-components/SideBySideImage';
 import findStoryByTag from 'helpers/general/findStoryByTag';
+import findStoryByName from 'helpers/findStoryByName';
+import Body from 'components/ui/Body';
 
 const About = ({ aboutData, poweredImagesData, shoutData, storiesData }) => {
   const poweredImage = findPoweredImage('about-pagehero', poweredImagesData);
-  const story = findStoryByTag('about-page-chef', storiesData.general);
+  //   const story = findStoryByTag('about-page-chef', storiesData.general);
+  const story = findStoryByName('about-page-story', storiesData.general);
   return (
     <Layout
       routes={routes}
       business={aboutData}
-      pageTitle="About"
+      pageTitle="WELCOME TO THC"
       shoutData={shoutData}
       poweredImagesData={poweredImagesData}
     >
-      <section className="">
-        <BasicContentContainer businessData={aboutData}></BasicContentContainer>
+      <section className="about-section p-4 bg-primary">
+        {/* <BasicContentContainer businessData={aboutData}></BasicContentContainer> */}
+        <div className="bg-dark max-w-xl mx-auto -mt-20 lg:-mt-32 relative z-10 p-4 ">
+          <Body body={story.body} />
+        </div>
         {/* <SideBySideImage
           story={story}
           noNegativeMargin
