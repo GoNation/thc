@@ -37,7 +37,7 @@ const MenuItem = ({
   const menuNameClassList =
     'menuItemName w-full block text-sm  text-white inline-flex font-body flex w-full justify-between';
   const descriptionClassList =
-    'menuItemDescription  max-w-xs text-md font-light font-display font-bold font-body text-xs md:text-sm';
+    'menuItemDescription  max-w-xs text-sm font-light font-display font-bold font-body';
   const defaultType = () => (
     <div className="menuItemInnerContainer  m-auto w-full h-full relative ">
       <div className="absolute  h-full "></div>

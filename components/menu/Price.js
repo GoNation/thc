@@ -2,7 +2,7 @@ import React from 'react';
 
 const Price = ({ variants, withDollar }) => {
   return (
-    <div className="menuPriceContainer text-white pr-4">
+    <span className="menuPriceContainer text-white pr-4 block">
       {variants[0].labelTitle ? (
         <p className="menuItemPriceLabel font-bold">{variants[0].labelTitle}</p>
       ) : (
@@ -15,7 +15,7 @@ const Price = ({ variants, withDollar }) => {
         {withDollar ? '$' : ''}
         {variants[0].price}
       </p>
-    </div>
+    </span>
   );
 };
 
