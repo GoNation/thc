@@ -44,7 +44,7 @@ const routes = [
       },
       {
         name: 'Drinks',
-        isPrimaryCalledToAction: true,
+        isPrimaryCalledToAction: false,
         url: '',
         seoPageTitle: '',
         tag: 'menus',
@@ -52,7 +52,7 @@ const routes = [
       },
       {
         name: 'Menu',
-        isPrimaryCalledToAction: true,
+        isPrimaryCalledToAction: false,
         url: '',
         seoPageTitle: '',
         tag: 'menus',
@@ -63,12 +63,12 @@ const routes = [
 
   {
     name: 'Events & Functions',
-    isPrimaryCalledToAction: true,
+    isPrimaryCalledToAction: false,
     url: '',
     children: [
       {
         name: 'Events',
-        isPrimaryCalledToAction: true,
+        isPrimaryCalledToAction: false,
         url: '',
         seoPageTitle: '',
         tag: 'discover',
@@ -76,38 +76,30 @@ const routes = [
       },
       {
         name: 'Private Events & Parties',
-        isPrimaryCalledToAction: true,
+        isPrimaryCalledToAction: false,
         url: '',
         seoPageTitle: '',
         tag: 'discover',
         path: '/private-events-and-parties',
-      },
-      {
-        name: 'Weddings',
-        isPrimaryCalledToAction: true,
-        url: '',
-        seoPageTitle: '',
-        tag: 'discover',
-        path: '/weddings',
       },
     ],
   },
 
   {
     name: 'Media',
-    isPrimaryCalledToAction: true,
+    isPrimaryCalledToAction: false,
     url: '',
     children: [
       {
         name: 'News',
-        isPrimaryCalledToAction: true,
+        isPrimaryCalledToAction: false,
         url: '',
         seoPageTitle: '',
         path: '/news',
       },
       {
         name: 'Gallery',
-        isPrimaryCalledToAction: true,
+        isPrimaryCalledToAction: false,
         url: '',
         seoPageTitle: '',
         path: '/gallery',
@@ -117,7 +109,7 @@ const routes = [
 
   {
     name: 'Gift Cards',
-    isPrimaryCalledToAction: true,
+    isPrimaryCalledToAction: false,
     url: 'https://swipeit.com/co-branded/merchant/the-hops-company-9639',
     seoPageTitle: '',
     tag: 'discover',
@@ -131,6 +123,14 @@ const routes = [
     tag: 'discover',
     path: '/contact',
     customPageHeroTitle: ' ',
+  },
+  {
+    name: 'Weddings',
+    isPrimaryCalledToAction: true,
+    url: '',
+    seoPageTitle: '',
+    tag: 'discover',
+    path: '/weddings',
   },
 ];
 

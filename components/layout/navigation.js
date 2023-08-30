@@ -38,7 +38,7 @@ const Navigation = ({ business, logoAsText = false }) => {
         <LinkItem
           key={slugify(child.name, { lower: true })}
           route={child}
-          className="block px-4 py-2 hover:bg-secondary hover:text-white whitespace-pre uppercase bold"
+          className={`block px-4 py-2 hover:bg-secondary hover:text-white whitespace-pre uppercase bold `}
         />
       ))}
     </div>
@@ -70,7 +70,11 @@ const Navigation = ({ business, logoAsText = false }) => {
       ) : (
         <LinkItem
           route={route}
-          className="text-white text-sm md:text-base lg:text-xl uppercase font-bold hover:underline"
+          className={` text-sm md:text-base lg:text-xl uppercase font-bold hover:underline ${
+            route.isPrimaryCalledToAction
+              ? 'lg:bg-white lg:text-forestGreen lg:px-5 lg:py-1 border border-forestGreen hover:bg-forestGreen hover:text-white no-underline hover:no-underline'
+              : 'text-white'
+          } `}
         />
       )}
     </div>

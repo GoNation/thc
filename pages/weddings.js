@@ -84,6 +84,10 @@ const Weddings = ({
   };
   return (
     <section className="weddings weddings-page">
+      <LargeContentContainer
+        story={findStoryByName('wedding-top', storiesData.general)}
+        solidBg="#ffffff"
+      />
       <SideBySideImage story={weddingStories[0]} config={sideBySideConfig} />
       <LargeContentContainer story={weddingStories[1]} />
 
