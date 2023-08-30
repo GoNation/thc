@@ -12,10 +12,22 @@ const lightColor = '#E1DEDB';
 
 const routes = [
   {
+    name: 'Home', // This is the name that will appear in the navigation
+    path: '/', // This is the path that will be used to build the URL
+    pageDescription: 'Welcome to our homepage', // This is the description that will appear in the <head> tag. If not provided, the business description will be used.
+    customPageHero: 'home-pagehero', // This is the name of the image that will be used as the page hero. If not provided, we will attempt to find the page hero based on the page name.
+    hidePageHero: true, // This will hide the page hero if set to true
+    isPrimaryCalledToAction: false,
+    hidden: true,
+  },
+  {
     name: 'About',
+    path: '/about',
     isPrimaryCalledToAction: false,
     pageHero: 'about-pagehero',
     tag: 'discover',
+    customPageHeroTitle: 'WELCOME TO THC',
+    aboutStoryName: 'about-page-story',
   },
 
   {
@@ -36,6 +48,7 @@ const routes = [
         url: '',
         seoPageTitle: '',
         tag: 'menus',
+        path: '/drinks',
       },
       {
         name: 'Menu',
@@ -43,6 +56,7 @@ const routes = [
         url: '',
         seoPageTitle: '',
         tag: 'menus',
+        path: '/menu',
       },
     ],
   },
@@ -58,6 +72,7 @@ const routes = [
         url: '',
         seoPageTitle: '',
         tag: 'discover',
+        path: '/events',
       },
       {
         name: 'Private Events & Parties',
@@ -65,6 +80,7 @@ const routes = [
         url: '',
         seoPageTitle: '',
         tag: 'discover',
+        path: '/private-events-and-parties',
       },
       {
         name: 'Weddings',
@@ -86,12 +102,14 @@ const routes = [
         isPrimaryCalledToAction: true,
         url: '',
         seoPageTitle: '',
+        path: '/news',
       },
       {
         name: 'Gallery',
         isPrimaryCalledToAction: true,
         url: '',
         seoPageTitle: '',
+        path: '/gallery',
       },
     ],
   },
@@ -110,6 +128,7 @@ const routes = [
     pageHero: 'Contact-heropage',
     seoPageTitle: '',
     tag: 'discover',
+    path: '/contact',
   },
 ];
 

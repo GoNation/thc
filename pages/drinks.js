@@ -1,11 +1,10 @@
 import React from 'react';
-import PageHero from 'components/heros/PageHero';
-import Layout from 'components/layout/layout';
 import GoNationMenu from 'components/menu/Menu';
 import { gonationId } from 'config';
 import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
-import findPoweredImage from 'helpers/general/findPoweredImage';
 import Container from 'components/ui/Container';
+
+import WithLayout from 'components/layout/WithLayout';
 
 const Drinks = ({
   aboutData,
@@ -14,29 +13,22 @@ const Drinks = ({
   shoutData,
 }) => {
   return (
-    <Layout
-      business={aboutData}
-      pageTitle="Drinks"
-      shoutData={shoutData}
-      poweredImagesData={poweredImagesData}
-    >
-      <div className="menu-wrap py-8 bg-dark">
-        <Container size="large">
-          <div className="lg:pb-32 ">
-            <GoNationMenu
-              gonationID={gonationId}
-              businessData={aboutData}
-              menuData={menuInventoryData[0]}
-              mode={'tabs'}
-            />
-          </div>
-        </Container>
-      </div>
-    </Layout>
+    <div className="menu-wrap py-8 bg-dark">
+      <Container size="large">
+        <div className="lg:pb-32 ">
+          <GoNationMenu
+            gonationID={gonationId}
+            businessData={aboutData}
+            menuData={menuInventoryData[0]}
+            mode={'tabs'}
+          />
+        </div>
+      </Container>
+    </div>
   );
 };
 
-export default Drinks;
+export default WithLayout(Drinks);
 
 export async function getStaticProps() {
   const { poweredImagesData, aboutData, menuInventoryData, shoutData } =

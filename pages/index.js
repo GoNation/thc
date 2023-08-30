@@ -1,115 +1,37 @@
-import AppContext from 'context/AppContext';
-import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
-import Layout from 'components/layout/layout';
 import matter from 'gray-matter';
-
-import MultiStoryHero from 'components/story-components/MultiStoryHero';
-import ExpandableShout from 'components/shout/ExpandableShout';
-import SideBySideImage from 'components/story-components/SideBySideImage';
-import styles from 'styles';
 import fs from 'fs';
 import path from 'path';
-import LargeContentContainer from 'components/story-components/LargeContentContainer';
 
-export default function Home({
-  storiesData,
-  aboutData,
-  shoutData,
-  poweredImagesData,
-  filesData,
-}) {
-  // const routeData = () => routes.find('');
-  //   const heroStory = findStoryByTag('1', storiesData.general);
-  //   const homeAboutStory = findStoryByTag('2', storiesData.general);
-  //   const homePhotoSlider = findStoryByTag('3', storiesData.general);
-  //   const homeBookingStory = findStoryByTag('4', storiesData.general);
-  //   const blockPhotosStory = findStoryByTag('5', storiesData.general);
-  //   const homeServicesStory = findStoryByTag('6', storiesData.general);
-  //   const ctaStories = [
-  //     findStoryByTag('7', storiesData.general),
-  //     findStoryByTag('8', storiesData.general),
-  //     findStoryByTag('9', storiesData.general),
-  //   ];
-  //   const homeOurPeopleStory = findStoryByTag('10', storiesData.general);
-  //   const homePhotoBlockStory = findStoryByTag('11', storiesData.general);
-  //   const homeCancellationStory = findStoryByTag('12', storiesData.general);
-  //   const homeContactInfoStory = findStoryByTag('13', storiesData.general);
-  const homepageSliderStories = storiesData?.general
-    ?.filter(
-      story =>
-        story.name?.toLowerCase()?.includes('homepage slider') &&
-        story.media?.length
-    )
-    .sort((a, b) => {
-      const numA = parseInt(a.name.match(/\d+/));
-      const numB = parseInt(b.name.match(/\d+/));
+import ExpandableShout from 'components/shout/ExpandableShout';
+import WithLayout from 'components/layout/WithLayout';
+import MultiStoryHero from 'components/story-components/MultiStoryHero';
+import StorySection from 'components/StorySection';
+import BackgroundVideo from 'components/BackgroundVideo';
 
-      return numA - numB; // This will sort in ascending order based on the numbers
-    });
+import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
+import { filterAndSortStories } from 'helpers';
 
-  const findStoryByName = (name = '') =>
-    storiesData.general.find(story =>
-      story.name.toLowerCase().includes(name.toLowerCase())
-    );
+const Home = ({ storiesData, shoutData, filesData }) => {
+  const homepageSliderStories = filterAndSortStories(
+    storiesData,
+    'homepage slider'
+  );
 
   return (
-    <AppContext.Provider value={{ storiesData, aboutData, shoutData }}>
-      <Layout
-        business={aboutData}
-        pageTitle="Home"
-        shoutData={shoutData}
-        poweredImagesData={poweredImagesData}
-        homeSliderData={homepageSliderStories}
-      >
-        <ExpandableShout isExpandable={false} shout={shoutData.shout} />
-        <div className="bg-black p-8 relative">
-          <span className="">
-            <img
-              src="/ripple.svg"
-              alt=""
-              className="rotate-180 absolute -top-4 md:-top-4 lg:-top-8 left-0 right-0 w-full"
-            />
-          </span>
-          <iframe
-            className="h-96 sm:h-[400px] lg:h-[750px] pt-4 md:pt-0"
-            src="https://www.youtube.com/embed/D9CMUOWmcZs?si=degvSOb4bd3r4mmk&amp;controls=0"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <section className="">
-          <div className="relative">
-            <span className="">
-              <img
-                src="/ripple.svg"
-                alt=""
-                className="absolute top-0 md:-top-1 w-full z-10 left-0 right-0"
-              />
-            </span>
-            <SideBySideImage
-              config={filesData[0]}
-              story={findStoryByName('Homepage story 2')}
-            />
-          </div>
+    <>
+      <MultiStoryHero stories={homepageSliderStories} slideDuration={8000} />
+      <ExpandableShout isExpandable={false} shout={shoutData.shout} />
+      <BackgroundVideo
+        videoUrl="https://www.youtube.com/embed/D9CMUOWmcZs?si=degvSOb4bd3r4mmk&amp;controls=0"
+        videoTitle="YouTube video player"
+      />
 
-          <SideBySideImage
-            config={filesData[2]}
-            story={findStoryByName('Homepage story 3')}
-          />
-
-          <SideBySideImage
-            config={filesData[0]}
-            story={findStoryByName('Homepage story 4')}
-          />
-
-          <LargeContentContainer story={findStoryByName('Homepage story 5')} />
-        </section>
-      </Layout>
-    </AppContext.Provider>
+      <StorySection storiesData={storiesData.general} filesData={filesData} />
+    </>
   );
-}
+};
+
+export default WithLayout(Home);
 
 export async function getStaticProps() {
   const directory = path.join(process.cwd(), 'content/sidebysideimage');

@@ -42,7 +42,7 @@ const eventFetch = async businessId => {
   const recurringEventsData = await recurringEventsResponse.json();
 
   return {
-    recurringEventsData,
+    recurringEventsData: recurringEventsData || {},
     specialEventsData,
   };
 };

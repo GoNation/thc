@@ -1,46 +1,35 @@
 import React from 'react';
 import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
-import Layout from 'components/layout/layout';
+// import Layout from 'components/layout/WithLayout';
 import EventsComponent from 'components/events/Events';
+import WithLayout from 'components/layout/WithLayout';
 
-const Events = ({ aboutData, poweredImagesData, shoutData, eventsData }) => {
+const Events = ({ aboutData, eventsData }) => {
   return (
-    <Layout
-      business={aboutData}
-      poweredImagesData={poweredImagesData}
-      shoutData={shoutData}
-      pageTitle="Events"
-    >
-      <section className="py-4 md:py-12 bg-dark">
-        {/* Other content will go here */}
-        <EventsComponent
-          pageTitle={'Events'}
-          businessData={aboutData}
-          recurringEvents={eventsData.recurringEventsData.events}
-          singleEvents={eventsData.specialEventsData.events}
-        />
-      </section>
-    </Layout>
+    <section className="py-4 md:py-12 bg-dark">
+      {/* Other content will go here */}
+      <EventsComponent
+        pageTitle={'Events'}
+        businessData={aboutData}
+        recurringEvents={eventsData.recurringEventsData.events}
+        singleEvents={eventsData.specialEventsData.events}
+      />
+    </section>
   );
 };
 
-export default Events;
+export default WithLayout(Events);
 
 export async function getStaticProps() {
-  const { poweredImagesData, aboutData, galleryData, shoutData, eventsData } =
-    await fetchGoNationData({
-      poweredImages: true,
-      about: true,
-      gallery: true,
-      shout: true,
-      events: true,
-    });
+  const { poweredImagesData, aboutData, eventsData } = await fetchGoNationData({
+    poweredImages: true,
+    about: true,
+    events: true,
+  });
   return {
     props: {
       poweredImagesData,
       aboutData,
-      galleryData,
-      shoutData,
       eventsData,
     },
   };
