@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import slugify from 'slugify';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { Sling as Hamburger } from 'hamburger-react';
-
-import { routes } from 'config';
-import printAddress from 'helpers/printing/printAddress';
-import buildAvatar from 'helpers/general/buildAvatar';
 import { motion } from 'framer-motion';
 import MobileNavigation from './MobileNavigation';
-
 import { FaAngleDown } from 'react-icons/fa';
+
+import { routes } from 'config';
+import buildAvatar from 'helpers/general/buildAvatar';
 
 const Navigation = ({ business, logoAsText = false }) => {
   const [navIsOpen, setNavIsOpen] = useState(false);
@@ -33,30 +30,53 @@ const Navigation = ({ business, logoAsText = false }) => {
 
   const hasScrolled = () => scrollPosition > 1;
 
+  // Component for the dropdown children
+  const Dropdown = ({ children }) => (
+    <div className="absolute left-0 mt-0 space-y-2 bg-white text-black shadow-md py-1">
+      {children.map(child => (
+        <LinkItem
+          key={slugify(child.name, { lower: true })}
+          route={child}
+          className="block px-4 py-2 hover:bg-secondary hover:text-white whitespace-pre uppercase bold"
+        />
+      ))}
+    </div>
+  );
+
+  // Component for individual link items
+  const LinkItem = ({ route, className }) => (
+    <Link href={route.path || '#'} className={className}>
+      {route.name}
+    </Link>
+  );
+
+  // Function to render each route
+  const renderRoute = route => (
+    <div key={slugify(route.name, { lower: true })} className="relative group">
+      {route.children ? (
+        <>
+          <span className="text-white text-sm md:text-base lg:text-xl uppercase font-bold inline-flex items-center">
+            {route.name}
+            <span className="ml-1">
+              <FaAngleDown color="#ffffff" />
+            </span>
+          </span>
+          <Dropdown children={route.children} />
+        </>
+      ) : (
+        <LinkItem
+          route={route}
+          className="text-white text-sm md:text-base lg:text-xl uppercase font-bold hover:underline"
+        />
+      )}
+    </div>
+  );
+
   return (
     <div className={`absolute w-full z-50 transition-all`}>
       <div className="container max-w-6xl xl:max-w-none mx-auto px-4 py-4 flex lg:flex-col items-center justify-center">
-        {/* Logo */}
         <div className="transition-all mb-8 lg:mb-4">
           <Link href={'/'}>
-            <Image
-              className="transition-all sm:hidden "
-              src={logo}
-              alt="Business Logo"
-              width={120}
-              height={120}
-            />
-          </Link>
-          <Link href={'/'} className="hidden sm:block md:block xl:hidden">
-            <Image
-              className="transition-all"
-              src={logo}
-              alt="Business Logo"
-              width={150}
-              height={150}
-            />
-          </Link>
-          <Link href={'/'} className="hidden xl:block">
             <Image
               className="transition-all"
               src={logo}
@@ -67,43 +87,10 @@ const Navigation = ({ business, logoAsText = false }) => {
           </Link>
         </div>
 
-        {/* Desktop Navigation */}
         <div className="hidden lg:flex space-x-3">
-          {routes.map(route => (
-            <div
-              key={slugify(route.name, { lower: true })}
-              className="relative group"
-            >
-              <Link
-                href={route.url || slugify(route.name, { lower: true })}
-                className="text-white text-sm md:text-base lg:text-xl uppercase font-bold hover:underline inline-flex items-center"
-              >
-                {route.name}
-                {route.children && (
-                  <span className="ml-1">
-                    <FaAngleDown color="#fffff" />
-                  </span>
-                )}
-              </Link>
-
-              {route.children && (
-                <div className="absolute left-0 mt-0 space-y-2 bg-white  text-black shadow-md hidden group-hover:block py-1">
-                  {route.children.map(child => (
-                    <Link
-                      key={slugify(child.name, { lower: true })}
-                      href={child.url || slugify(child.name, { lower: true })}
-                      className="block px-4 py-2 hover:bg-secondary hover:text-white whitespace-pre uppercase bold"
-                    >
-                      {child.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
+          {routes.map(renderRoute)}
         </div>
 
-        {/* Hamburger */}
         <div className="lg:hidden absolute right-8 top-14 md:top-16 z-10">
           <Hamburger
             toggled={navIsOpen}
@@ -112,7 +99,6 @@ const Navigation = ({ business, logoAsText = false }) => {
           />
         </div>
 
-        {/* Mobile Navigation */}
         {navIsOpen && <MobileNavigation business={business} logo={logo} />}
       </div>
     </div>
