@@ -83,7 +83,7 @@ const Weddings = ({
     },
   };
   return (
-    <section className="weddings">
+    <section className="weddings weddings-page">
       <SideBySideImage story={weddingStories[0]} config={sideBySideConfig} />
       <LargeContentContainer story={weddingStories[1]} />
 

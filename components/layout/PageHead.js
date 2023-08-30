@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { domain } from 'config';
 
-const PageHead = ({ title, description, avatar }) => {
+const PageHead = ({ title = '', description = '', avatar = '' }) => {
   const metaURL = title => `${domain}/${slugifyLower(title)}`;
 
   return (
