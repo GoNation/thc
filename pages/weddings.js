@@ -114,7 +114,9 @@ const Weddings = ({
         <Reviews data={menuInventoryData[0]} />
       </div>
 
-      <LargeContentContainer story={weddingStories[2]} />
+      <div className="large-content-wedding">
+        <LargeContentContainer story={weddingStories[2]} />
+      </div>
       <div className="wedding-form-container">
         <WeddingForm
           title="Book Your Dream Wedding at The Hops Company"

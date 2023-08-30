@@ -374,3 +374,20 @@ background-image: url("https://www.transparenttextures.com/patterns/crossword.pn
 .wedding-form-container p {
 	@apply text-sm leading-relaxed;
 }
+
+.large-content-wedding h4 {
+	@apply text-white font-wedding italic text-3xl font-light;
+}
+
+/* .large-content-wedding second h4 */
+.large-content-wedding .sub {
+	@apply text-white font-body not-italic text-sm font-light ;
+}
+
+.large-content-wedding .opac-content {
+	@apply !bg-opacity-40 border-forestGreenLight bg-green-900 shadow-none;
+}
+
+.large-content-wedding a {
+	@apply text-sm text-white border-white px-8 py-2 hover:bg-forestGreen hover:text-white;
+}

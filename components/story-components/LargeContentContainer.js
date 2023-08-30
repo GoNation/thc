@@ -38,9 +38,9 @@ const LargeContentContainer = ({ story, solidBg, hideIcon = false }) => {
               }
         }
       >
-        <div className="absolute top-0 left-0 w-full h-full bg-dark opacity-10"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-dark opacity-10 "></div>
         <div
-          className={`max-w-md m-auto text-white relative text-center bg-black bg-opacity-80 p-4 md:p-12  border-2 border-primary rounded ${
+          className={`max-w-md m-auto text-white relative text-center bg-black bg-opacity-80 p-4 md:p-12  border-2 border-primary rounded opac-content ${
             noStoryContent && 'hidden'
           }`}
         >
@@ -50,7 +50,7 @@ const LargeContentContainer = ({ story, solidBg, hideIcon = false }) => {
             </h4>
           </div>
           <div className="mb-3  text-md">
-            <h4 className="text-sm font-display text-white">
+            <h4 className="text-sm font-display text-white sub">
               {story.subtitle}
             </h4>
           </div>

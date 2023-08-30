@@ -21,8 +21,8 @@ const ClickableBox = ({ story, noClick, idx }) => {
       ) : (
         ''
       )}
-      <div className="bg-dark py-2 px-2">
-        <h4 className="text-primary font-display text-4xl md:text-3xl font-bold uppercase text-center">
+      <div className="bg-green-50 py-4 px-2 ">
+        <h4 className="text-primary font-display text-4xl md:text-3xl !text-4xl font-bold uppercase text-center ">
           {title}
         </h4>
       </div>
