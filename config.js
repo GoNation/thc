@@ -88,6 +88,7 @@ const routes = [
         url: '',
         seoPageTitle: '',
         tag: 'discover',
+        path: '/weddings',
       },
     ],
   },

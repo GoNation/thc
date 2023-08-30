@@ -9,6 +9,7 @@ import { FaAngleDown } from 'react-icons/fa';
 
 import { routes } from 'config';
 import buildAvatar from 'helpers/general/buildAvatar';
+import slugifyLower from 'helpers/printing/slugifyLower';
 
 const Navigation = ({ business, logoAsText = false }) => {
   const [navIsOpen, setNavIsOpen] = useState(false);
@@ -32,7 +33,7 @@ const Navigation = ({ business, logoAsText = false }) => {
 
   // Component for the dropdown children
   const Dropdown = ({ children }) => (
-    <div className="absolute left-0 mt-0 space-y-2 bg-white text-black shadow-md py-1">
+    <div className="absolute left-0 mt-0 space-y-2 bg-white text-black shadow-md py-1 hidden group-hover:block">
       {children.map(child => (
         <LinkItem
           key={slugify(child.name, { lower: true })}
@@ -45,7 +46,10 @@ const Navigation = ({ business, logoAsText = false }) => {
 
   // Component for individual link items
   const LinkItem = ({ route, className }) => (
-    <Link href={route.path || '#'} className={className}>
+    <Link
+      href={route.path || route.url || slugifyLower(route.name) || '#'}
+      className={className}
+    >
       {route.name}
     </Link>
   );

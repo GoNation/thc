@@ -8,6 +8,7 @@ import LargeContentContainer from 'components/story-components/LargeContentConta
 import ClickableBoxes from 'components/story-components/ClickableBoxes';
 import Reviews from 'components/Reviews';
 import WeddingForm from 'components/contact/WedingForm';
+import RenderStoryImages from 'components/RenderStoryImages';
 
 const Weddings = ({
   aboutData,
@@ -29,6 +30,26 @@ const Weddings = ({
     findStoryByName('wedding page story 10', storiesData.general),
     findStoryByName('wedding page story 11', storiesData.general),
   ].filter(story => story?.id);
+
+  const awards = [
+    findStoryByName(
+      "WEDDING WIRE COUPLE'S CHOICE AWARDS 2019",
+      storiesData.general
+    ),
+    findStoryByName(
+      "WEDDING WIRE COUPLE'S CHOICE AWARDS 2021",
+      storiesData.general
+    ),
+    findStoryByName(
+      "WEDDING WIRE COUPLE'S CHOICE AWARDS 2022",
+      storiesData.general
+    ),
+    findStoryByName(
+      "WEDDING WIRE COUPLE'S CHOICE AWARDS 2023",
+      storiesData.general
+    ),
+  ];
+
   const sideBySideConfig = {
     templateKey: 'sidebysideimage',
     title: 'SideBySideVariation1',
@@ -100,6 +121,12 @@ const Weddings = ({
       />
 
       <LargeContentContainer story={weddingStories[9]} />
+      <section className="pb-4">
+        <h4 className="font-display font-bold text-3xl text-secondary md:text-5xl lg:text-6xl text-center uppercase mt-4 md:mt-6 ">
+          Awards
+        </h4>
+        <RenderStoryImages stories={awards} />
+      </section>
     </section>
   );
 };
