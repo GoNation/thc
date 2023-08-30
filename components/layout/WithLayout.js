@@ -46,7 +46,7 @@ const WithLayout = Component => {
         )}
 
         <main className="">
-          <Component {...props} />
+          <Component {...props} pageData={pageData} />
         </main>
 
         <Footer logoAsText business={aboutData} shoutData={shoutData} />
