@@ -29,8 +29,6 @@ const Weddings = ({
     findStoryByName('wedding page story 10', storiesData.general),
     findStoryByName('wedding page story 11', storiesData.general),
   ].filter(story => story?.id);
-
-  console.log(weddingStories[0]);
   const sideBySideConfig = {
     templateKey: 'sidebysideimage',
     title: 'SideBySideVariation1',
