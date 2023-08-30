@@ -1,58 +1,42 @@
 import React from 'react';
-import PageHero from 'components/heros/PageHero';
-import Layout from 'components/layout/WithLayout';
+import WithLayout from 'components/layout/WithLayout';
 import GoNationMenu from 'components/menu/Menu';
 import { gonationId } from 'config';
 import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
-import findPoweredImage from 'helpers/general/findPoweredImage';
 import Container from 'components/ui/Container';
 
-const Menu = ({
-  aboutData,
-  poweredImagesData,
-  menuInventoryData,
-  shoutData,
-}) => {
+const Menu = ({ aboutData, menuInventoryData }) => {
   return (
-    <Layout
-      business={aboutData}
-      pageTitle="Menu"
-      shoutData={shoutData}
-      poweredImagesData={poweredImagesData}
-    >
-      <div className="menu-wrap py-8 bg-dark">
-        <Container size="large">
-          <div className="lg:pb-32 ">
-            <GoNationMenu
-              gonationID={gonationId}
-              businessData={aboutData}
-              menuData={menuInventoryData[0]}
-              mode={'tabs'}
-            />
-          </div>
-        </Container>
-      </div>
-    </Layout>
+    <div className="menu-wrap py-8 bg-dark">
+      <Container size="large">
+        <div className="lg:pb-32 ">
+          <GoNationMenu
+            gonationID={gonationId}
+            businessData={aboutData}
+            menuData={menuInventoryData[0]}
+            mode={'tabs'}
+          />
+        </div>
+      </Container>
+    </div>
   );
 };
 
-export default Menu;
+export default WithLayout(Menu);
 
 export async function getStaticProps() {
-  const { poweredImagesData, aboutData, menuInventoryData, shoutData } =
+  const { poweredImagesData, aboutData, menuInventoryData } =
     await fetchGoNationData({
       poweredImages: true,
       about: true,
       menuInventory: true,
       menuPL: 1,
-      shout: true,
     });
   return {
     props: {
       poweredImagesData,
       aboutData,
       menuInventoryData,
-      shoutData,
     },
   };
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
-import Layout from 'components/layout/WithLayout';
+import WithLayout from 'components/layout/WithLayout';
 import findStoryByName from 'helpers/findStoryByName';
 
 import SideBySideImage from 'components/story-components/SideBySideImage';
@@ -63,54 +63,47 @@ const Weddings = ({
     },
   };
   return (
-    <Layout
-      business={aboutData}
-      poweredImagesData={poweredImagesData}
-      shoutData={shoutData}
-      pageTitle="Weddings"
-    >
-      <section className="weddings">
-        <SideBySideImage story={weddingStories[0]} config={sideBySideConfig} />
-        {/* Other content will go here */}
+    <section className="weddings">
+      <SideBySideImage story={weddingStories[0]} config={sideBySideConfig} />
+      {/* Other content will go here */}
 
-        <LargeContentContainer story={weddingStories[1]} />
+      <LargeContentContainer story={weddingStories[1]} />
 
-        <div className="py-12">
-          <ClickableBoxes
-            stories={[
-              weddingStories[3],
-              weddingStories[4],
-              weddingStories[5],
-              weddingStories[6],
-            ]}
-          />
-        </div>
-
-        <SideBySideImage
-          story={weddingStories[7]}
-          config={{ ...sideBySideConfig, reversed: false }}
+      <div className="py-12">
+        <ClickableBoxes
+          stories={[
+            weddingStories[3],
+            weddingStories[4],
+            weddingStories[5],
+            weddingStories[6],
+          ]}
         />
+      </div>
 
-        <div className="py-4 md:mt-20 lg:mt-24">
-          <Reviews data={menuInventoryData[0]} />
-        </div>
+      <SideBySideImage
+        story={weddingStories[7]}
+        config={{ ...sideBySideConfig, reversed: false }}
+      />
 
-        <LargeContentContainer story={weddingStories[2]} />
-        <WeddingForm
-          title="Book Your Dream Wedding at The Hops Company"
-          text="Imagine saying 'I do' amidst cascading waterfalls, rustic charms, and the glow of fire pits, all set within our enchanting private garden. At The Hops Company, not only do we offer an unparalleled New England ambiance for your wedding, but we also indulge your guests with a diverse array of craft beers, ciders, wines, and signature cocktails. Conveniently located in Southern CT, our venue is a stone's throw away from major routes, making it the ideal destination for couples in Fairfield and New Haven County. Complete the form below and take the first step towards the wedding of your dreams."
-        />
-        <SideBySideImage
-          story={weddingStories[8]}
-          config={{ ...sideBySideConfig, reversed: false }}
-        />
-        <LargeContentContainer story={weddingStories[9]} />
-      </section>
-    </Layout>
+      <div className="py-4 md:mt-20 lg:mt-24">
+        <Reviews data={menuInventoryData[0]} />
+      </div>
+
+      <LargeContentContainer story={weddingStories[2]} />
+      <WeddingForm
+        title="Book Your Dream Wedding at The Hops Company"
+        text="Imagine saying 'I do' amidst cascading waterfalls, rustic charms, and the glow of fire pits, all set within our enchanting private garden. At The Hops Company, not only do we offer an unparalleled New England ambiance for your wedding, but we also indulge your guests with a diverse array of craft beers, ciders, wines, and signature cocktails. Conveniently located in Southern CT, our venue is a stone's throw away from major routes, making it the ideal destination for couples in Fairfield and New Haven County. Complete the form below and take the first step towards the wedding of your dreams."
+      />
+      <SideBySideImage
+        story={weddingStories[8]}
+        config={{ ...sideBySideConfig, reversed: false }}
+      />
+      <LargeContentContainer story={weddingStories[9]} />
+    </section>
   );
 };
 
-export default Weddings;
+export default WithLayout(Weddings);
 
 export async function getStaticProps() {
   const {

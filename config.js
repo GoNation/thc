@@ -56,6 +56,7 @@ const routes = [
         url: '',
         seoPageTitle: '',
         tag: 'menus',
+        path: '/menu',
       },
     ],
   },
@@ -71,6 +72,7 @@ const routes = [
         url: '',
         seoPageTitle: '',
         tag: 'discover',
+        path: '/events',
       },
       {
         name: 'Private Events & Parties',
@@ -78,6 +80,7 @@ const routes = [
         url: '',
         seoPageTitle: '',
         tag: 'discover',
+        path: '/private-events-and-parties',
       },
       {
         name: 'Weddings',
@@ -99,12 +102,14 @@ const routes = [
         isPrimaryCalledToAction: true,
         url: '',
         seoPageTitle: '',
+        path: '/news',
       },
       {
         name: 'Gallery',
         isPrimaryCalledToAction: true,
         url: '',
         seoPageTitle: '',
+        path: '/gallery',
       },
     ],
   },
