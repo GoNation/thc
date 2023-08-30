@@ -52,7 +52,8 @@ const Weddings = ({
         'text-primary font-display text-4xl md:text-5xl font-bold uppercase',
       subtitleStyle:
         'text-secondary font-display text-3xl md:text-4xl uppercase my-2',
-      bodyContainerStyle: 'font-bold my-2 mb-4 text-center max-w-lg mx-auto',
+      bodyContainerStyle:
+        'font-bold my-2 mb-4 text-center max-w-lg mx-auto lg:text-lg',
     },
     imageConfig: {
       containerStyle: 'h-96',
@@ -75,6 +76,7 @@ const Weddings = ({
             weddingStories[5],
             weddingStories[6],
           ]}
+          noClick
         />
       </div>
 

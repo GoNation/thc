@@ -129,6 +129,7 @@ const routes = [
     seoPageTitle: '',
     tag: 'discover',
     path: '/contact',
+    customPageHeroTitle: ' ',
   },
 ];
 
