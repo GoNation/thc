@@ -367,3 +367,10 @@ background-image: url("https://www.transparenttextures.com/patterns/crossword.pn
 .weddings-page a {
 	@apply text-gray-600 bg-transparent border-forestGreenLight border font-light font-body hover:border-forestGreen hover:text-forestGreen transition-all duration-100 hover:bg-green-50 px-24 py-2;
 }
+
+.wedding-form-container h4 {
+	@apply text-3xl;
+}
+.wedding-form-container p {
+	@apply text-sm leading-relaxed;
+}
