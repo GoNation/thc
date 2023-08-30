@@ -17,6 +17,11 @@ const Home = ({ storiesData, shoutData, filesData }) => {
     'homepage slider'
   );
 
+  const homePageStorySectionStories = filterAndSortStories(
+    storiesData,
+    'homepage story section'
+  );
+
   return (
     <>
       <MultiStoryHero stories={homepageSliderStories} slideDuration={8000} />

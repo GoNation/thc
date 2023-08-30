@@ -57,6 +57,7 @@ function MobileNavigation({ navVariants, business, logo }) {
                 lower: true,
               })}
               href={
+                route.path ||
                 route.url ||
                 slugify(route.name, {
                   lower: true,

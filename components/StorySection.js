@@ -4,6 +4,7 @@ import LargeContentContainer from 'components/story-components/LargeContentConta
 
 const StorySection = ({ storiesData, filesData }) => (
   <section>
+    {console.log(storiesData)}
     <div className="relative">
       <img
         src="/ripple.svg"
