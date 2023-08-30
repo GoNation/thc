@@ -1,5 +1,5 @@
 import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
-import Layout from 'components/layout/layout';
+import Layout from 'components/layout/WithLayout';
 import DetailsBox from 'components/contact/DetailsBox';
 import ContactForm from 'components/contact/ContactForm';
 import HoursDisplay from 'components/hours/hoursDisplay';

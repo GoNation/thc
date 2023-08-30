@@ -1,6 +1,6 @@
 import React from 'react';
 import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
-import Layout from 'components/layout/layout';
+import Layout from 'components/layout/WithLayout';
 import PageHero from 'components/heros/PageHero';
 import BasicContentContainer from 'components/story-components/BasicContentContainer';
 import { businessId, routes } from 'config';

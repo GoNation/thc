@@ -1,6 +1,6 @@
 import React from 'react';
 import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
-import Layout from 'components/layout/layout';
+import Layout from 'components/layout/WithLayout';
 import LargeContentContainer from 'components/story-components/LargeContentContainer';
 import SideBySideImage from 'components/story-components/SideBySideImage';
 import findStoryByName from 'helpers/findStoryByName';

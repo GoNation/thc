@@ -1,6 +1,6 @@
 import React from 'react';
 import PageHero from 'components/heros/PageHero';
-import Layout from 'components/layout/layout';
+import Layout from 'components/layout/WithLayout';
 import GoNationMenu from 'components/menu/Menu';
 import { gonationId } from 'config';
 import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';

@@ -1,6 +1,6 @@
 import React from 'react';
 import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
-import Layout from 'components/layout/layout';
+import Layout from 'components/layout/WithLayout';
 import Masonry from 'components/gallery/Masonry';
 import { filteredOutGalleryImages } from 'config';
 import findPoweredImage from 'helpers/general/findPoweredImage';

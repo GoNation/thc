@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from 'components/layout/layout';
+import Layout from 'components/layout/WithLayout';
 import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
 import extractStory from 'helpers/extractStory';
 import buildAvatar from 'helpers/general/buildAvatar';

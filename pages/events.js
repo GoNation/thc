@@ -1,6 +1,6 @@
 import React from 'react';
 import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
-import Layout from 'components/layout/layout';
+import Layout from 'components/layout/WithLayout';
 import EventsComponent from 'components/events/Events';
 
 const Events = ({ aboutData, poweredImagesData, shoutData, eventsData }) => {
