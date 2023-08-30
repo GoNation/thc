@@ -8,24 +8,32 @@ export default function Reviews({ data = {} }) {
   const { inventory } = data;
 
   return (
-    <Carousel showStatus={false} autoPlay loop>
-      {inventory.map(itm => (
-        <div key={itm.desc} className="relative max-w-3xl mx-auto px-8 md:px-0">
-          <div className="absolute top-0 left-4">
-            <FaQuoteLeft size={42} color="#F5DAA9" />
-          </div>
+    <Carousel showStatus={false} autoPlay loop showThumbs={false}>
+      {inventory
+        ?.filter(itm => itm)
+        .map(itm => (
+          <div
+            key={itm.item.item_id}
+            className="relative max-w-3xl mx-auto px-8 md:px-0"
+          >
+            <h4 className="font-wedding text-forestGreen text-4xl text-center">
+              Testimonial From
+            </h4>
+            <div className="absolute -top-12 md:top-0 left-4">
+              <FaQuoteLeft size={42} color="#4F7942" />
+            </div>
 
-          <p className="mb-8 max-w-3xl m-auto font-bold font-body  text-lg px-4   text-dark">
-            {itm.item.name}
-          </p>
-          <p className="mb-8 max-w-xl m-auto text-base italic font-body px-4   text-dark">
-            {itm.item.desc}
-          </p>
-          <div className="absolute -bottom-10 right-4 ">
-            <FaQuoteRight size={42} color={'#F5DAA9'} />
+            <p className="mb-8 max-w-3xl m-auto font-bold font-body  text-lg px-4   text-dark">
+              {itm.item.name}
+            </p>
+            <p className="mb-8 max-w-xl m-auto text-base italic font-body px-4   text-dark">
+              {itm.item.desc}
+            </p>
+            <div className="absolute -bottom-10 right-4 ">
+              <FaQuoteRight size={42} color={'#4F7942'} />
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
     </Carousel>
   );
 }

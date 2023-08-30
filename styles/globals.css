@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=BenchNine&family=Noto+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -343,4 +344,50 @@ background-image: url("https://www.transparenttextures.com/patterns/crossword.pn
 /* text-align: center the second child inside of .everyday-menu */
 .everyday-menu > div:nth-child(2) > div:nth-child(1) h4 {
   text-align: center;
+}
+
+/* For all text elements in .weddings-page  */
+
+.weddings-page h4,
+.weddings-page h3,
+.weddings-page h2,
+.weddings-page h1 {
+	text-transform: none;
+	@apply text-forestGreen font-wedding italic text-5xl sm:text-6xl font-light;
+}
+
+.weddings-page p {
+	@apply !text-gray-500 text-xl leading-9 font-body font-light;
+}
+
+.weddings-page h5 {
+	@apply text-gray-500 font-body text-xl font-light uppercase tracking-widest;
+}
+
+.weddings-page a {
+	@apply text-gray-600 bg-transparent border-forestGreenLight border font-light font-body hover:border-forestGreen hover:text-forestGreen transition-all duration-100 hover:bg-green-50 px-24 py-2;
+}
+
+.wedding-form-container h4 {
+	@apply text-3xl;
+}
+.wedding-form-container p {
+	@apply text-sm leading-relaxed;
+}
+
+.large-content-wedding h4 {
+	@apply text-white font-wedding italic text-3xl font-light;
+}
+
+/* .large-content-wedding second h4 */
+.large-content-wedding .sub {
+	@apply text-white font-body not-italic text-sm font-light ;
+}
+
+.large-content-wedding .opac-content {
+	@apply !bg-opacity-40 border-forestGreenLight bg-green-900 shadow-none;
+}
+
+.large-content-wedding a {
+	@apply text-sm text-white border-white px-8 py-2 hover:bg-forestGreen hover:text-white;
 }

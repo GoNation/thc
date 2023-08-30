@@ -21,7 +21,7 @@ const ClickableBoxes = ({
     <div className={outerClassList}>
       {reversedArray.map((story, idx) => (
         <div
-          className={`w-full md:w-1/2 xl:w-1/4 p-4 relative ${
+          className={`w-full md:w-1/2 xl:w-1/4 px-1 py-4 md:p-4 relative ${
             idx === 2 ? 'flex-1' : ''
           }`}
           key={story.id}

@@ -83,7 +83,7 @@ const Weddings = ({
     },
   };
   return (
-    <section className="weddings">
+    <section className="weddings weddings-page">
       <SideBySideImage story={weddingStories[0]} config={sideBySideConfig} />
       <LargeContentContainer story={weddingStories[1]} />
 
@@ -114,11 +114,15 @@ const Weddings = ({
         <Reviews data={menuInventoryData[0]} />
       </div>
 
-      <LargeContentContainer story={weddingStories[2]} />
-      <WeddingForm
-        title="Book Your Dream Wedding at The Hops Company"
-        text="Imagine saying 'I do' amidst cascading waterfalls, rustic charms, and the glow of fire pits, all set within our enchanting private garden. At The Hops Company, not only do we offer an unparalleled New England ambiance for your wedding, but we also indulge your guests with a diverse array of craft beers, ciders, wines, and signature cocktails. Conveniently located in Southern CT, our venue is a stone's throw away from major routes, making it the ideal destination for couples in Fairfield and New Haven County. Complete the form below and take the first step towards the wedding of your dreams."
-      />
+      <div className="large-content-wedding">
+        <LargeContentContainer story={weddingStories[2]} />
+      </div>
+      <div className="wedding-form-container">
+        <WeddingForm
+          title="Book Your Dream Wedding at The Hops Company"
+          text="Imagine saying 'I do' amidst cascading waterfalls, rustic charms, and the glow of fire pits, all set within our enchanting private garden. At The Hops Company, not only do we offer an unparalleled New England ambiance for your wedding, but we also indulge your guests with a diverse array of craft beers, ciders, wines, and signature cocktails. Conveniently located in Southern CT, our venue is a stone's throw away from major routes, making it the ideal destination for couples in Fairfield and New Haven County. Complete the form below and take the first step towards the wedding of your dreams."
+        />
+      </div>
 
       <LargeContentContainer story={weddingStories[9]} />
       <section className="pb-4">
