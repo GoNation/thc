@@ -48,6 +48,7 @@ const routes = [
         url: '',
         seoPageTitle: '',
         tag: 'menus',
+        path: '/drinks',
       },
       {
         name: 'Menu',
@@ -122,6 +123,7 @@ const routes = [
     pageHero: 'Contact-heropage',
     seoPageTitle: '',
     tag: 'discover',
+    path: '/contact',
   },
 ];
 

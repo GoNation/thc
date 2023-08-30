@@ -36,4 +36,17 @@ const filterAndSortStories = (stories, filterName) => {
   return sortStoriesByNumericName(filteredStories);
 };
 
-export { retrievePageHeroImage, filterAndSortStories };
+function findPageData(routes, pathname) {
+  return routes
+    .reduce((acc, route) => {
+      if (route.children) {
+        acc = acc.concat(route.children);
+      } else {
+        acc.push(route); // Only push routes that don't have children
+      }
+      return acc;
+    }, [])
+    .find(route => route.path === pathname);
+}
+
+export { retrievePageHeroImage, filterAndSortStories, findPageData };

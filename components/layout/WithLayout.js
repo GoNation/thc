@@ -1,25 +1,30 @@
+// React and Next imports
 import React from 'react';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 
+// Component imports
 import Navigation from './navigation';
 import Footer from './footer';
-import buildAvatar from 'helpers/general/buildAvatar';
-import { domain, routes } from 'config';
-import slugifyLower from 'helpers/printing/slugifyLower';
 import PageHero from 'components/heros/PageHero';
-import { retrievePageHeroImage } from 'helpers';
 import PageHead from './PageHead';
+
+// Utility and helper imports
+import buildAvatar from 'helpers/general/buildAvatar';
+import { retrievePageHeroImage } from 'helpers';
+import { findPageData } from 'helpers';
+
+// Configurations
+import { routes } from 'config';
 
 const WithLayout = Component => {
   return function WrappedComponent(props) {
-    const router = useRouter();
-    const { pathname } = router;
+    const { pathname } = useRouter();
 
-    const pageData = routes.find(route => route.path === pathname);
-
+    // Data destructuring
     const { shoutData, poweredImagesData, aboutData } = props;
 
+    // Page specific data
+    const pageData = findPageData(routes, pathname);
     const pageTitle = `${pageData?.name} | ${aboutData.name}` || pathname;
     const pageDescription = pageData?.pageDescription || aboutData.desc;
     const customPageHero = pageData?.customPageHero || null;
@@ -33,7 +38,9 @@ const WithLayout = Component => {
           description={pageDescription}
           avatar={buildAvatar(aboutData)}
         />
+
         <Navigation business={aboutData} />
+
         {!hidePageHero && (
           <PageHero
             img={retrievePageHeroImage(
