@@ -24,6 +24,7 @@ const WithLayout = Component => {
     const pageDescription = pageData?.pageDescription || aboutData.desc;
     const customPageHero = pageData?.customPageHero || null;
     const hidePageHero = pageData?.hidePageHero || false;
+    const pageHeroTitle = pageData?.customPageHeroTitle || pageData?.name || '';
 
     return (
       <>
@@ -40,7 +41,7 @@ const WithLayout = Component => {
               customPageHero,
               poweredImagesData
             )}
-            pageTitle={pageTitle}
+            pageTitle={pageHeroTitle}
           />
         )}
 

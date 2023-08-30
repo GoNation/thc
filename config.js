@@ -22,9 +22,11 @@ const routes = [
   },
   {
     name: 'About',
+    path: '/about',
     isPrimaryCalledToAction: false,
     pageHero: 'about-pagehero',
     tag: 'discover',
+    customPageHeroTitle: 'WELCOME TO THC',
   },
 
   {
