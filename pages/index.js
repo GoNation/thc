@@ -7,9 +7,11 @@ import WithLayout from 'components/layout/WithLayout';
 import MultiStoryHero from 'components/story-components/MultiStoryHero';
 import StorySection from 'components/StorySection';
 import BackgroundVideo from 'components/BackgroundVideo';
+import LargeContentContainer from 'components/story-components/LargeContentContainer';
 
 import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
 import { filterAndSortStories } from 'helpers';
+import findStoryByName from 'helpers/findStoryByName';
 
 const Home = ({ storiesData, shoutData, filesData }) => {
   const homepageSliderStories = filterAndSortStories(
@@ -31,7 +33,22 @@ const Home = ({ storiesData, shoutData, filesData }) => {
         videoTitle="YouTube video player"
       />
 
-      <StorySection storiesData={storiesData.general} filesData={filesData} />
+      <StorySection
+        storiesData={storiesData.general}
+        storiesConfig={[
+          {
+            storyName: 'Homepage story 2',
+            config: filesData[0],
+            svgSrc: '/ripple.svg',
+          },
+          { storyName: 'Homepage story 3', config: filesData[2] },
+          { storyName: 'Homepage story 4', config: filesData[0] },
+          // ... add more stories as needed
+        ]}
+      />
+      <LargeContentContainer
+        story={findStoryByName('Homepage story 5', storiesData.general)}
+      />
     </>
   );
 };
