@@ -88,6 +88,7 @@ const Weddings = ({
         story={findStoryByName('wedding-top', storiesData.general)}
         solidBg="#ffffff"
       />
+
       <SideBySideImage story={weddingStories[0]} config={sideBySideConfig} />
       <LargeContentContainer story={weddingStories[1]} />
 
@@ -134,6 +135,34 @@ const Weddings = ({
           Awards
         </h4>
         <RenderStoryImages stories={awards} />
+      </section>
+
+      <section className="pb-4 xl:pb-8">
+        <h4 className="font-display font-bold text-3xl text-secondary md:text-5xl lg:text-6xl text-center uppercase mt-4 md:mt-6 ">
+          Featured In...
+        </h4>
+        <div className="flex flex-col md:flex-row justify-center items-center">
+          <div className="my-4">
+            <a
+              className="!py-4 mx-2"
+              target="_blank"
+              href="https://www.theknot.com/marketplace/redirect-993432?utm_source=vendor_website&utm_medium=banner&utm_term=5ce8ce68-7b7e-45df-a862-a68900dd9b5f&utm_campaign=vendor_badge_assets"
+            >
+              The Knot
+            </a>
+          </div>
+          <div className="my-4">
+            <a
+              className="!py-4 mx-2"
+              rel="nofollow"
+              target="_blank"
+              href="https://www.weddingwire.com"
+              title="weddingwire.com"
+            >
+              Wedding Wire
+            </a>
+          </div>
+        </div>
       </section>
     </section>
   );
