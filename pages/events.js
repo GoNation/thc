@@ -20,7 +20,7 @@ const Events = ({ aboutData, eventsData }) => {
 
 export default WithLayout(Events);
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { poweredImagesData, aboutData, eventsData } = await fetchGoNationData({
     poweredImages: true,
     about: true,

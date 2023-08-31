@@ -108,12 +108,16 @@ const routes = [
         isPrimaryCalledToAction: false,
         url: '',
         seoPageTitle: '',
+        pageDescription:
+          "Stay updated with the latest news and articles featuring THC The Hops Company, Derby, CT. From our award-winning recognition to unique events and celebrations, read about our highlights in Connecticut's beer and dining scene. Explore now for recent updates and happenings.",
         path: '/news',
       },
       {
         name: 'Gallery',
         isPrimaryCalledToAction: false,
         url: '',
+        pageDescription:
+          "Dive into the visual journey of THC The Hops Company, Derby, CT. Experience our vibrant beer garden atmosphere, diverse drinks, delightful food, and memorable events through a curated gallery. Step inside Connecticut's largest beer garden, one click away.",
         seoPageTitle: '',
         path: '/gallery',
       },
@@ -136,7 +140,10 @@ const routes = [
     tag: 'discover',
     path: '/contact',
     customPageHeroTitle: ' ',
+    pageDescription:
+      'Reach out to THC The Hops Company in Derby, CT for any inquiries. Find our address, contact number, and operating hours or drop us a message through our contact form. Let’s craft exceptional experiences together.',
   },
+
   {
     name: 'Weddings',
     isPrimaryCalledToAction: true,
@@ -144,6 +151,8 @@ const routes = [
     seoPageTitle: '',
     tag: 'discover',
     path: '/weddings',
+    pageDescription:
+      'Make your dream wedding come to life at The Garden at THC The Hops Company, Derby, CT. Dive into an enchanting private garden setting, rustic charms, cascading waterfalls, and unparalleled New England ambiance. Explore testimonials, details, and reach out for your perfect day.',
   },
 ];
 
