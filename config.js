@@ -14,7 +14,8 @@ const routes = [
   {
     name: 'Home', // This is the name that will appear in the navigation
     path: '/', // This is the path that will be used to build the URL
-    pageDescription: 'Welcome to our homepage', // This is the description that will appear in the <head> tag. If not provided, the business description will be used.
+    pageDescription:
+      'Visit THC The Hops Company in Derby CT for craft beers, gourmet food, and scenic wedding venues. Your ultimate beer garden experience is here.',
     customPageHero: 'home-pagehero', // This is the name of the image that will be used as the page hero. If not provided, we will attempt to find the page hero based on the page name.
     hidePageHero: true, // This will hide the page hero if set to true
     isPrimaryCalledToAction: false,
@@ -27,6 +28,8 @@ const routes = [
     pageHero: 'about-pagehero',
     tag: 'discover',
     customPageHeroTitle: 'WELCOME TO THC',
+    pageDescription:
+      "Discover The Hops Company's ethos, our passion for beer, and the experience that sets us apart in Derby, CT. Dive into Connecticut's finest beer bar.",
     aboutStoryName: 'about-page-story',
   },
 
@@ -34,6 +37,7 @@ const routes = [
     name: 'Menus',
     isPrimaryCalledToAction: false,
     url: '',
+
     children: [
       {
         name: 'On Tap',
@@ -48,6 +52,9 @@ const routes = [
         url: '',
         seoPageTitle: '',
         tag: 'menus',
+        pageDescription:
+          'Discover a range of drinks at THC, from signature mocktails to non-alcoholic beers. Elevate your palate with our curated beverages in Derby, CT.',
+
         path: '/drinks',
       },
       {
@@ -55,6 +62,8 @@ const routes = [
         isPrimaryCalledToAction: false,
         url: '',
         seoPageTitle: '',
+        pageDescription:
+          "Explore THC's gourmet Zuppardi’s Apizzas, fresh salads, and delectable desserts. Experience an unmatched dining journey in Derby, CT.",
         tag: 'menus',
         path: '/menu',
       },
@@ -71,6 +80,8 @@ const routes = [
         isPrimaryCalledToAction: false,
         url: '',
         seoPageTitle: '',
+        pageDescription:
+          'Experience diverse events at THC, from live DJ nights to acoustic evenings and our signature brunch. Revel in top-notch entertainment in Derby, CT.',
         tag: 'discover',
         path: '/events',
       },
@@ -78,7 +89,8 @@ const routes = [
         name: 'Private Events & Parties',
         isPrimaryCalledToAction: false,
         url: '',
-        seoPageTitle: '',
+        pageDescription:
+          'Host your event at THC. From private functions to grand events, experience top-notch facilities and entertainment in Derby, CT.',
         tag: 'discover',
         path: '/private-events-and-parties',
       },
