@@ -142,6 +142,8 @@ const filteredOutGalleryImages = [
   'shouts',
   'Shout',
   'Shouts',
+  'Website photos ',
+  'website photos ',
 ];
 
 const hardCodedAddressText = '';

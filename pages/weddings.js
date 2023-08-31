@@ -48,6 +48,7 @@ const Weddings = ({
       "WEDDING WIRE COUPLE'S CHOICE AWARDS 2023",
       storiesData.general
     ),
+    findStoryByName('SERVICE FOR ALLKIND', storiesData.general),
   ];
 
   const sideBySideConfig = {
