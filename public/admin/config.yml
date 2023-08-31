@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: test-repo
   branch: main
   repo: GoNation/thc
 media_folder: public/img
@@ -39,22 +39,14 @@ collections:
             }
           - { label: 'Tertiary Style', name: 'tertiaryStyle', widget: 'string' }
           - { label: 'Default Style', name: 'defaultStyle', widget: 'string' }
-      - label: 'Content Configuration'
-        name: 'contentConfig'
-        widget: 'object'
-        fields:
-          - {
-              label: 'Container Style',
-              name: 'containerStyle',
-              widget: 'string',
-            }
-          - { label: 'Title Style', name: 'titleStyle', widget: 'string' }
-          - { label: 'Subtitle Style', name: 'subtitleStyle', widget: 'string' }
-          - {
-              label: 'Body Container Style',
-              name: 'bodyContainerStyle',
-              widget: 'string',
-            }
+      - label: 'Content Component Reference'
+        name: 'contentComponentReference'
+        widget: 'relation'
+        collection: 'content_component'
+        searchFields: ['title', 'subtitle']
+        valueField: 'title'
+        displayFields: ['title']
+        create: false
       - label: 'Image Configuration'
         name: 'imageConfig'
         widget: 'object'
@@ -70,3 +62,47 @@ collections:
               widget: 'string',
             }
           - { label: 'Image Style', name: 'imageStyle', widget: 'string' }
+  - name: 'content_component'
+    label: 'Content Component'
+    folder: 'src/content-components'
+    create: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Link Title', name: 'linkTitle', widget: 'string' }
+      - { label: 'Link Address', name: 'linkAddress', widget: 'string' }
+      - {
+          label: 'Reversed',
+          name: 'reversed',
+          widget: 'boolean',
+          default: false,
+        }
+      - name: 'styles'
+        label: 'Styles'
+        widget: 'object'
+        fields:
+          - {
+              label: 'Container Style',
+              name: 'containerStyle',
+              widget: 'string',
+              default: 'bg-background flex flex-col items-center justify-center py-23 px-8',
+            }
+          - {
+              label: 'Title Style',
+              name: 'titleStyle',
+              widget: 'string',
+              default: 'text-primary font-display text-4xl md:text-5xl font-bold uppercase',
+            }
+          - {
+              label: 'Subtitle Style',
+              name: 'subtitleStyle',
+              widget: 'string',
+              default: 'text-primary font-display text-2xl uppercase',
+            }
+          - {
+              label: 'Body Container Style',
+              name: 'bodyContainerStyle',
+              widget: 'string',
+              default: 'font-bold my-2 mb-4 text-center',
+            }
