@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: test-repo
   branch: main
   repo: GoNation/thc
 media_folder: public/img
@@ -70,3 +70,60 @@ collections:
               widget: 'string',
             }
           - { label: 'Image Style', name: 'imageStyle', widget: 'string' }
+  - name: 'config'
+    label: 'Website Configuration'
+    files:
+      - label: 'Settings'
+        name: 'settings'
+        file: 'config.md' # Update this with the actual path to your settings file
+        fields:
+          - { label: 'Business ID', name: 'id', widget: 'string' }
+          - { label: 'Domain', name: 'domain', widget: 'string' }
+          - { label: 'Hard Coded Address Text', name: 'hardCodedAddressText', widget: 'string' }
+          - { label: 'Hard Coded Address URL', name: 'hardCodedAddressURL', widget: 'string' }
+
+          # Colors Configuration
+          - label: 'Colors'
+            name: 'COLORS'
+            widget: 'object'
+            fields:
+              - { label: 'Primary', name: 'primary', widget: 'string' }
+              - { label: 'Secondary', name: 'secondary', widget: 'string' }
+              # ... (add other color fields similarly)
+              - { label: 'Tertiary', name: 'tertiary', widget: 'string' }
+              - { label: 'Dark', name: 'dark', widget: 'string' }
+              - { label: 'Background', name: 'background', widget: 'string' }
+              - { label: 'Light', name: 'light', widget: 'string' }
+
+          # IFrame Settings Configuration
+          - label: 'IFrame Settings'
+            name: 'IFRAME_SETTINGS'
+            widget: 'object'
+            fields:
+              - { label: 'URL', name: 'url', widget: 'string' }
+              - { label: 'Embed', name: 'embed', widget: 'text' }
+
+          # Routes Configuration
+          - label: 'Routes'
+            name: 'ROUTES'
+            widget: 'list'
+            fields:
+              - { label: 'Name', name: 'name', widget: 'string' }
+              - { label: 'Path', name: 'path', widget: 'string', required: false }
+              - { label: 'URL', name: 'url', widget: 'string', required: false }
+              - { label: 'Page Description', name: 'pageDescription', widget: 'text', required: false }
+              # ... (continue in similar fashion for the other route attributes)
+              - label: 'Children'
+                name: 'children'
+                widget: 'list'
+                required: false
+                fields:
+                  - { label: 'Name', name: 'name', widget: 'string' }
+                  # ... (continue in similar fashion for the children attributes)
+
+          # Filtered Gallery Images Configuration
+          - label: 'Filtered Gallery Images'
+            name: 'FILTERED_GALLERY_IMAGES'
+            widget: 'list'
+            fields:
+              - { label: 'Image', name: 'image', widget: 'string' }
