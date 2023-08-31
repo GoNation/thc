@@ -81,6 +81,7 @@ const routes = [
         seoPageTitle: '',
         tag: 'discover',
         path: '/private-events-and-parties',
+        customPageHero: 'parties-pagehero', // This is the name of the image that will be used as the page hero. If not provided, we will attempt to find the page hero based on the page name.
       },
     ],
   },

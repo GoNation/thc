@@ -41,13 +41,19 @@ const Gallery = ({ galleryData }) => {
             </span>{' '}
             Go Back to Albums
           </button>
-          <h2 className="my-6 text-white font-bold uppercase text-xl sm:text-2xl md:text-3xl lg:text-5xl font-display  text-center ">
+          <h2
+            className={`my-6 text-white font-bold  text-xl sm:text-2xl md:text-3xl lg:text-5xl text-center ${
+              activeAlbum.name.toLowerCase().includes('wedding')
+                ? 'font-wedding normal-case'
+                : 'font-display uppercase'
+            }`}
+          >
             {activeAlbum.name}
           </h2>
           <Masonry data={[activeAlbum]} />
         </>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 ">
+        <div className="grid grid-cols-2 sm:grid-cols-3 max-w-[1440px] mx-auto">
           {filteredData.map(album => (
             <button onClick={() => handleAlbumClick(album)} key={album.id}>
               <Album album={album} />

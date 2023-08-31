@@ -1,12 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-const Album = ({
-  album,
-  coverPhotoIndex = 0,
-  gridCols = '1fr',
-  customStyling,
-}) => {
+const Album = ({ album, coverPhotoIndex = 0, customStyling }) => {
   const coverPhoto = album.photos[coverPhotoIndex];
 
   return (
@@ -27,7 +22,13 @@ const Album = ({
           />
         </div>
         {/* Album Name */}
-        <h2 className="font-display absolute z-0 text-white text-shadow text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl hover:text-primary">
+        <h2
+          className={` absolute z-0 text-white text-shadow text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl hover:text-primary ${
+            album.name.toLowerCase().includes('wedding')
+              ? 'font-wedding'
+              : 'font-display'
+          }`}
+        >
           {album.name}
         </h2>
       </div>
