@@ -6,17 +6,16 @@ import WithLayout from 'components/layout/WithLayout';
 import Masonry from 'components/gallery/Masonry';
 import { filteredOutGalleryImages } from 'config';
 import Album from 'components/Album';
-// import left arrow icon from react-icons
 import { FaArrowLeft } from 'react-icons/fa';
 
 const Gallery = ({ galleryData }) => {
   const router = useRouter();
   const [activeAlbum, setActiveAlbum] = useState(null);
 
-  const filterGalleryAlbums = abm =>
-    !filteredOutGalleryImages.includes(abm.name.toLowerCase());
-
-  const filteredData = galleryData.filter(filterGalleryAlbums);
+  const getFilteredAlbums = () =>
+    galleryData.filter(
+      abm => !filteredOutGalleryImages.includes(abm.name.toLowerCase())
+    );
 
   const handleAlbumClick = album => {
     setActiveAlbum(album);
@@ -28,8 +27,15 @@ const Gallery = ({ galleryData }) => {
     router.push(`/gallery`);
   };
 
+  const albumNameStyle = name =>
+    `my-6 text-white font-bold  text-xl sm:text-2xl md:text-3xl lg:text-5xl text-center ${
+      name.toLowerCase().includes('wedding')
+        ? 'font-wedding normal-case'
+        : 'font-display uppercase'
+    }`;
+
   return (
-    <section className="min-h-screen with-texture px-0 bg-dark py-4">
+    <section className="min-h-screen with-texture px-0 bg-black py-4">
       {activeAlbum ? (
         <>
           <button
@@ -37,27 +43,23 @@ const Gallery = ({ galleryData }) => {
             className="bg-dark text-white underline font-light font-body inline-flex items-center mb-4 hover:text-primary pl-2"
           >
             <span className="mr-2">
-              <FaArrowLeft></FaArrowLeft>
-            </span>{' '}
+              <FaArrowLeft />
+            </span>
             Go Back to Albums
           </button>
-          <h2
-            className={`my-6 text-white font-bold  text-xl sm:text-2xl md:text-3xl lg:text-5xl text-center ${
-              activeAlbum.name.toLowerCase().includes('wedding')
-                ? 'font-wedding normal-case'
-                : 'font-display uppercase'
-            }`}
-          >
+          <h2 className={albumNameStyle(activeAlbum.name)}>
             {activeAlbum.name}
           </h2>
           <Masonry data={[activeAlbum]} />
         </>
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 max-w-[1440px] mx-auto">
-          {filteredData.map(album => (
-            <button onClick={() => handleAlbumClick(album)} key={album.id}>
-              <Album album={album} />
-            </button>
+          {getFilteredAlbums().map(album => (
+            <Album
+              key={album.id}
+              album={album}
+              onAlbumClick={() => handleAlbumClick(album)}
+            />
           ))}
         </div>
       )}
