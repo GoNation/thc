@@ -2,7 +2,7 @@
 templateKey: sidebysideimage
 title: SideBySideVariation3
 sideBySideImageContainerStyle: grid grid-cols-1 md:grid-cols-2 gap-0 md:py-30 p-0 bg-tertiary md:gap-8 md:py-4 md:px-4
-reversed: true
+reversed: false
 ctaConfig:
   baseStyle: text-lg px-12 py-4 transition-all duration-1000 uppercase font-body
   primaryFilledStyle: bg-primary text-dark border-2 border-light hover:text-primary hover:bg-dark
