@@ -16,7 +16,7 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: 'full-specialty-drink-menu/',
+        source: '/full-specialty-drink-menu/',
         destination: '/drinks',
         permanent: true,
       },
@@ -26,57 +26,57 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: 'Specialty-Drinks-Wine-List',
+        source: '/Specialty-Drinks-Wine-List',
         destination: '/drinks',
         permanent: true,
       },
       {
-        source: 'Spirit-Section',
+        source: '/Spirit-Section',
         destination: '/drinks',
         permanent: true,
       },
       {
-        source: 'Happy-Hour',
+        source: '/Happy-Hour',
         destination: '/menu',
         permanent: true,
       },
       {
-        source: 'whiteclamwednesday/',
+        source: '/whiteclamwednesday/',
         destination: '/events',
         permanent: true,
       },
       {
-        source: 'mug-club/',
+        source: '/mug-club/',
         destination: '/',
         permanent: true,
       },
       {
-        source: 'mug-club',
+        source: '/mug-club',
         destination: '/',
         permanent: true,
       },
       {
-        source: 'Trivia-Night-White-Clam-Wednesday',
+        source: '/Trivia-Night-White-Clam-Wednesday',
         destination: '/events',
         permanent: true,
       },
       {
-        source: 'Penny-Brunch',
+        source: '/Penny-Brunch',
         destination: '/menu',
         permanent: true,
       },
       {
-        source: 'Live-Music-Entertainment',
+        source: '/Live-Music-Entertainment',
         destination: '/events',
         permanent: true,
       },
       {
-        source: 'Special-Events-The-Beer-Garden',
+        source: '/Special-Events-The-Beer-Garden',
         destination: '/events',
         permanent: true,
       },
       {
-        source: 'home/book-a-party',
+        source: '/home/book-a-party',
         destination: '/private-events-and-parties',
         permanent: true,
       },
