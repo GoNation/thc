@@ -63,7 +63,7 @@ function ExpandableShout({ shout, isExpandable = true }) {
         expanded ? 'py-12' : ''
       } relative`}
       style={{
-        backgroundImage: `url(https://res.cloudinary.com/gonation/image/upload/v1693076784/sites/thc/esmith7196_Capture_a_high-quality_photograph_of_a_rich_and_text_3ded2088-2032-4fc6-82f7-99c6feb728cc.png)`,
+        backgroundImage: `url(https://res.cloudinary.com/gonation/image/upload/c_scale,w_1200/v1693076784/sites/thc/esmith7196_Capture_a_high-quality_photograph_of_a_rich_and_text_3ded2088-2032-4fc6-82f7-99c6feb728cc.webp)`,
         backgroundSize: 'cover',
       }}
     >
