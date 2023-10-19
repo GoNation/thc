@@ -3,7 +3,7 @@ import NetlifyForm from './NetlifyForm';
 export default function PartiesForm({ title = 'Parties', desc }) {
   return (
     <div className="flex justify-center items-center bg-lighter p-4 lg:py-12">
-      <NetlifyForm name={title}>
+      <NetlifyForm name={title} successRedirect={'/contact/private-events'}>
         <h2 className="text-center text-2xl font-bold font-display uppercase mb-4 lg:text-xl xl:text-4xl">
           {title}
         </h2>

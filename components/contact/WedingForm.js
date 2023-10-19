@@ -6,7 +6,7 @@ export default function WeddingForm({ title, text }) {
       className="flex justify-center items-center bg-green-800 bg-opacity-20 p-4  	lg:py-12 "
       id="wedding-form"
     >
-      <NetlifyForm name="weddingForm">
+      <NetlifyForm name="weddingForm" successRedirect={'/success/weddings'}>
         {title || text ? (
           <div className="max-w-xl mb-4">
             <h4 className="text-primary font-display text-4xl md:text-3xl font-bold uppercase text-left">

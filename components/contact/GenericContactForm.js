@@ -3,7 +3,10 @@ import NetlifyForm from './NetlifyForm';
 export default function GenericContactForm({ title = 'Contact Form', desc }) {
   return (
     <div className="flex justify-center items-center bg-lighter p-4 lg:py-12">
-      <NetlifyForm name="genericContactForm">
+      <NetlifyForm
+        name="genericContactForm"
+        successRedirect={'/success/contact'}
+      >
         <h2 className="text-center text-2xl font-bold font-display uppercase mb-4 lg:text-xl xl:text-4xl">
           {title}
         </h2>
