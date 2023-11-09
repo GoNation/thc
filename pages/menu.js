@@ -24,7 +24,7 @@ const Menu = ({ aboutData, menuInventoryData }) => {
 
 export default WithLayout(Menu);
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { poweredImagesData, aboutData, menuInventoryData } =
     await fetchGoNationData({
       poweredImages: true,

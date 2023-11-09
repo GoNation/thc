@@ -30,7 +30,7 @@ const Drinks = ({
 
 export default WithLayout(Drinks);
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { poweredImagesData, aboutData, menuInventoryData, shoutData } =
     await fetchGoNationData({
       poweredImages: true,
