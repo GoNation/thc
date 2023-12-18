@@ -29,7 +29,7 @@ const Weddings = ({
     findStoryByName('wedding page story 9', storiesData.general),
     findStoryByName('wedding page story 10', storiesData.general),
     findStoryByName('wedding page story 11', storiesData.general),
-  ].filter((story) => story?.id);
+  ].filter(story => story?.id);
 
   const awards = [
     findStoryByName(
@@ -84,10 +84,35 @@ const Weddings = ({
     },
   };
   return (
-    <section className='weddings weddings-page'>
+    <section className="weddings weddings-page">
+      <div className="wedding-form-container">
+        <WeddingForm
+          title="Book Your Dream Wedding at The Hops Company"
+          text={
+            <>
+              Imagine saying 'I do' amidst cascading waterfalls, rustic charms,
+              and the glow of fire pits, all set within our enchanting private
+              garden. At The Hops Company, not only do we offer an unparalleled
+              New England ambiance for your wedding, but we also indulge your
+              guests with a diverse array of craft beers, ciders, wines, and
+              signature cocktails. Conveniently located in Southern CT, our
+              venue is a stone's throw away from major routes, making it the
+              ideal destination for couples in Fairfield and New Haven County.
+              Complete the form below and take the first step towards the
+              wedding of your dreams.
+              <p className="mt-4">
+                Phone:{' '}
+                <a className="underline" href="tel:203-308-6245">
+                  203-308-6245
+                </a>
+              </p>
+            </>
+          }
+        />
+      </div>
       <LargeContentContainer
         story={findStoryByName('wedding-top', storiesData.general)}
-        solidBg='#ffffff'
+        solidBg="#ffffff"
       />
 
       <SideBySideImage story={weddingStories[0]} config={sideBySideConfig} />
@@ -95,7 +120,7 @@ const Weddings = ({
 
       {/* Other content will go here */}
 
-      <div className='py-12'>
+      <div className="py-12">
         <ClickableBoxes
           stories={[
             weddingStories[3],
@@ -116,59 +141,53 @@ const Weddings = ({
         config={{ ...sideBySideConfig, reversed: true }}
       />
 
-      <div className='py-4 md:mt-20 lg:mt-24'>
+      <div className="py-4 md:mt-20 lg:mt-24">
         <Reviews data={menuInventoryData[0]} />
       </div>
 
-      <div className='large-content-wedding'>
+      <div className="large-content-wedding">
         <LargeContentContainer story={weddingStories[2]} />
       </div>
-      <div className='wedding-form-container'>
-        <WeddingForm
-          title='Book Your Dream Wedding at The Hops Company'
-          text="Imagine saying 'I do' amidst cascading waterfalls, rustic charms, and the glow of fire pits, all set within our enchanting private garden. At The Hops Company, not only do we offer an unparalleled New England ambiance for your wedding, but we also indulge your guests with a diverse array of craft beers, ciders, wines, and signature cocktails. Conveniently located in Southern CT, our venue is a stone's throw away from major routes, making it the ideal destination for couples in Fairfield and New Haven County. Complete the form below and take the first step towards the wedding of your dreams."
-        />
-      </div>
 
-      <div className='bg-primary py-10 px-4 min-h-[50vh] flex justify-center items-center'>
+      <div className="bg-primary py-10 px-4 min-h-[50vh] flex justify-center items-center">
         <iframe
-          className='w-full h-full min-h-[60vh]'
-          title='vimeo-player'
-          src='https://player.vimeo.com/video/871955694?h=1360022420'
-          frameborder='0'
+          className="w-full h-full min-h-[60vh]"
+          title="vimeo-player"
+          src="https://player.vimeo.com/video/871955694?h=1360022420"
+          frameborder="0"
           allowfullscreen
         ></iframe>
       </div>
 
       <LargeContentContainer story={weddingStories[9]} />
-      <section className='pb-4'>
-        <h4 className='font-display font-bold text-3xl text-secondary md:text-5xl lg:text-6xl text-center uppercase mt-4 md:mt-6 '>
+      <section className="pb-4">
+        <h4 className="font-display font-bold text-3xl text-secondary md:text-5xl lg:text-6xl text-center uppercase mt-4 md:mt-6 ">
           Awards
         </h4>
         <RenderStoryImages stories={awards} />
       </section>
 
-      <section className='pb-4 xl:pb-8'>
-        <h4 className='font-display font-bold text-3xl text-secondary md:text-5xl lg:text-6xl text-center uppercase mt-4 md:mt-6 '>
+      <section className="pb-4 xl:pb-8">
+        <h4 className="font-display font-bold text-3xl text-secondary md:text-5xl lg:text-6xl text-center uppercase mt-4 md:mt-6 ">
           Featured In...
         </h4>
-        <div className='flex flex-col md:flex-row justify-center items-center'>
-          <div className='my-4'>
+        <div className="flex flex-col md:flex-row justify-center items-center">
+          <div className="my-4">
             <a
-              className='!py-4 mx-2'
-              target='_blank'
-              href='https://www.theknot.com/marketplace/redirect-993432?utm_source=vendor_website&utm_medium=banner&utm_term=5ce8ce68-7b7e-45df-a862-a68900dd9b5f&utm_campaign=vendor_badge_assets'
+              className="!py-4 mx-2"
+              target="_blank"
+              href="https://www.theknot.com/marketplace/redirect-993432?utm_source=vendor_website&utm_medium=banner&utm_term=5ce8ce68-7b7e-45df-a862-a68900dd9b5f&utm_campaign=vendor_badge_assets"
             >
               The Knot
             </a>
           </div>
-          <div className='my-4'>
+          <div className="my-4">
             <a
-              className='!py-4 mx-2'
-              rel='nofollow'
-              target='_blank'
-              href='https://www.weddingwire.com'
-              title='weddingwire.com'
+              className="!py-4 mx-2"
+              rel="nofollow"
+              target="_blank"
+              href="https://www.weddingwire.com"
+              title="weddingwire.com"
             >
               Wedding Wire
             </a>
