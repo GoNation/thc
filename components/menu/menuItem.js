@@ -38,6 +38,8 @@ const MenuItem = ({
     'menuItemName w-full block text-base  text-white inline-flex font-body flex w-full justify-between md:text-lg lg:text-xl font-bold';
   const descriptionClassList =
     'menuItemDescription  max-w-xs text-sm md:text-base xl:text-lg font-light font-display font-bold font-body';
+  const toastLink =
+    'https://order.toasttab.com/online/tacoloco-at-the-hops-company';
   const defaultType = () => (
     <div className="menuItemInnerContainer  m-auto w-full h-full relative ">
       <div className="absolute  h-full "></div>
@@ -100,12 +102,12 @@ const MenuItem = ({
               {/* <Price withDollar={withDollar} variants={item.variants} toSide /> */}
             </div>
           ) : (
-            <div className="flex-col items-center">
+            <div className="flex-col items-center w-full">
               <p className={menuNameClassList}>
-                {item.name.toLowerCase().includes('click here') ? (
+                {isToastTabActive() ? (
                   <div className="my-8">
                     <a
-                      href="https://order.toasttab.com/online/tacoloco-at-the-hops-company"
+                      href={toastLink}
                       target="_blank"
                       className="bg-primary px-8 py-3 rounded-sm text-black font-semibold uppercase text-lg border-2 border-primary hover:bg-transparent hover:text-primary transition-all duration-500"
                     >
@@ -118,7 +120,25 @@ const MenuItem = ({
               </p>
               {item.desc && (
                 <p className={descriptionClassList}>
-                  {makeSentancesCapital(item.desc)}
+                  {item.desc.toLowerCase().includes('https') ? (
+                    <a
+                      href={item.desc}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="text-primary underline hover:text-white w-full"
+                    >
+                      Click here to view the menu
+                    </a>
+                  ) : item.desc.match(/\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/) ? (
+                    <a
+                      href={`tel:${item.desc}`}
+                      className="text-primary underline hover:text-white"
+                    >
+                      Call {item.desc}
+                    </a>
+                  ) : (
+                    makeSentancesCapital(item.desc)
+                  )}
                 </p>
               )}
               <PriceWithVariants
@@ -133,11 +153,21 @@ const MenuItem = ({
     </div>
   );
 
+  const isPhoneNumber = item.desc.match(/\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/);
+
   return (
-    <div className={`w-full   text-white md:w-1/2 md:mb-4`}>
+    <div
+      className={`w-full   text-white  ${
+        isToastTabActive() || isPhoneNumber ? 'md:w-full' : 'md:w-full'
+      } md:mb-4`}
+    >
       {getMenuItemType()}
     </div>
   );
+
+  function isToastTabActive() {
+    return item.name.toLowerCase().includes('click here');
+  }
 };
 
 export default MenuItem;
