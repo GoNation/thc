@@ -127,7 +127,7 @@ const MenuItem = ({
                       rel="noreferrer noopener"
                       className="text-primary underline hover:text-white w-full"
                     >
-                      Click here to view the menu
+                      Order Here
                     </a>
                   ) : item.desc.match(/\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/) ? (
                     <a
