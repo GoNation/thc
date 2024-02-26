@@ -101,7 +101,21 @@ const MenuItem = ({
             </div>
           ) : (
             <div className="flex-col items-center">
-              <p className={menuNameClassList}>{item.name}</p>
+              <p className={menuNameClassList}>
+                {item.name.toLowerCase().includes('click here') ? (
+                  <div className="my-8">
+                    <a
+                      href="https://order.toasttab.com/online/tacoloco-at-the-hops-company"
+                      target="_blank"
+                      className="bg-primary px-8 py-3 rounded-sm text-black font-semibold uppercase text-lg border-2 border-primary hover:bg-transparent hover:text-primary transition-all duration-500"
+                    >
+                      {item.name}
+                    </a>
+                  </div>
+                ) : (
+                  item.name
+                )}
+              </p>
               {item.desc && (
                 <p className={descriptionClassList}>
                   {makeSentancesCapital(item.desc)}
