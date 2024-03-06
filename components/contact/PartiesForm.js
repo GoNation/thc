@@ -48,6 +48,7 @@ export default function PartiesForm({ title = 'Parties', desc }) {
             name="Preferred Date(s)"
             placeholder="Preferred Date(s)"
             className="w-full p-2 border border-secondary rounded"
+            required
           />
 
           <input

@@ -44,6 +44,7 @@ export default function WeddingForm({ title, text }) {
             name="Date of Wedding"
             placeholder="Date of Wedding"
             className="w-full p-2 border border-forestGreen rounded"
+            required
           />
 
           <input
